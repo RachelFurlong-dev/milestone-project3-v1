@@ -139,9 +139,15 @@ def edit_houseplant(houseplant_id):
 
 @app.route("/delete_houseplant/<houseplant_id>")
 def delete_houseplant(houseplant_id):
-    mongo.db.tasks.remove({"_id": ObjectId(houseplant_id)})
+    mongo.db.houseplants.delete_one({"_id": ObjectId(houseplant_id)})
     flash("Houseplant Successfully Deleted")
-    return redirect(url_for("get_houseplants"))             
+    return redirect(url_for("get_houseplants")) 
+
+
+@app.route("/get_categories")
+def get_categories():
+    categories = list(mongo.db.categories.find().sort("category_name", 1))
+    return render_template("categories.html", categories=categories)
 
 
 if __name__ == "__main__":
