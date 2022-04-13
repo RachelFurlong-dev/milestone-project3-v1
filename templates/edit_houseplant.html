@@ -9,10 +9,14 @@
             <div class="input-field col s12">
                 <i class="fas fa-folder-open prefix green-text text-darken-4"></i>
                     <select id="category_name" name="category_name" class="validate" required>
-                    <option value="" disabled selected>Choose category</option>
+                    <option value="" disabled>Choose category</option>
                     {% for category in categories %}
-                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                    {% endfor %}
+                            {% if category.category_name == houseplant.category_name %}
+                                <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                            {% else %}
+                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% endif %}
+                        {% endfor %}
                     </select>
                         <label for="category_name">Houseplant Category</label>
             </div>
@@ -21,7 +25,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-leaf prefix green-text text-darken-4"></i>
-            <input id="horticultural_name" name="horticultural_name" type="text" minlength="5"
+            <input id="horticultural_name" name="horticultural_name" value="{{ houseplant.horticultural_name }}" type="text" minlength="5"
                 maxlength="50" class="validate" required>
             <label for="horticultural_name">Horticultural Name</label>
             </div>
@@ -30,7 +34,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-leaf prefix green-text text-darken-4"></i>
-            <input id="common_name" name="common_name" type="text" minlength="5"
+            <input id="common_name" name="common_name" value="{{ houseplant.common_name }}" type="text" minlength="5"
                 maxlength="50" class="validate" required>
             <label for="common_name">Common Name</label>
             </div>
@@ -39,7 +43,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-image prefix green-text text-darken-4"></i>
-                <input id="image_url" name="image_url" class="validate" type="url" minlength="15"
+                <input id="image_url" name="image_url" value="{{ houseplant.image_url }}" class="validate" type="url" minlength="15"
                      autocomplete="off">
             <label for="image_url">Houseplant Photo Url</label>
             </div>
@@ -49,7 +53,9 @@
             <div class="input-field col s12">
                 <i class="fas fa-align-left prefix green-text text-darken-4"></i>
             <textarea id="description" name="description" minlength="5"
-            maxlength="200" class="materialize-textarea validate" required></textarea>
+            maxlength="200" class="materialize-textarea validate" required>
+                {{- houseplant.description -}}
+            </textarea>
             <label for="description">Houseplant Description</label>
             </div>
       </div>
@@ -57,13 +63,18 @@
       <div class="row">
         <div class="input-field col s12">
             <i class="fas fa-calendar-alt prefix green-text text-darken-4"></i>
-        <input id="date" name="date" type="text" class="datepicker validate" required>
+        <input id="date" name="date" type="text" 
+        value="{{ houseplant.date }}" class="datepicker validate" required>
         <label for="date">Date Added</label>
         </div>
     </div>
      <!-- submit button -->
     <div class="row">
         <div class="col s12 center-align">
+            <!-- cancel button -->
+            <a href="{{ url_for('get_houseplants') }}" class="btn-large red accent-3 text-shadow">
+                Cancel <i class="fas fa-times-circle right"></i>
+            </a>
             <button type="submit" class="btn-large light-green darken-4 text-shadow">
                 Edit Houseplant <i class="fas fa-edit right"></i>
             </button>
