@@ -97,8 +97,21 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_houseplant")
+@app.route("/add_houseplant", methods=["GET", "POST"])
 def add_houseplant():
+    if request.method == "POST":
+        houseplant = {
+            "category_name": request.form.get("category_name"),
+            "horticultural_name": request.form.get("horticultural_name"),
+            "common_name": request.form.get("common_name"),
+            "description": request.form.get("description"),
+            "date": request.form.get("date"),
+            "created_by": session["user"]
+        }
+        mongo.db.houseplants.insert_one(houseplant)
+        flash("Houseplant Successfully Added")
+        return redirect(url_for("get_houseplants"))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_houseplant.html", categories=categories)           
 
