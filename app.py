@@ -94,7 +94,12 @@ def logout():
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("login"))           
+    return redirect(url_for("login"))
+
+
+@app.route("/add_houseplant")
+def add_houseplant():
+    return render_template("add_houseplant.html")           
 
 
 if __name__ == "__main__":
