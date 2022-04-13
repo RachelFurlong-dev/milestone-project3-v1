@@ -114,7 +114,14 @@ def add_houseplant():
         return redirect(url_for("get_houseplants"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_houseplant.html", categories=categories)           
+    return render_template("add_houseplant.html", categories=categories)
+
+
+@app.route("/edit_houseplant/<houseplant_id>", methods=["GET", "POST"])
+def edit_houseplant(houseplant_id):
+    houseplant = mongo.db.houseplants.find_one({"_id": ObjectId(houseplant_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_houseplant.html", houseplant=houseplant, categories=categories)           
 
 
 if __name__ == "__main__":
