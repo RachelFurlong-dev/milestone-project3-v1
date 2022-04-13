@@ -96,7 +96,9 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
+#CRUD functionality
 
+#function to add houseplant record to database
 @app.route("/add_houseplant", methods=["GET", "POST"])
 def add_houseplant():
     if request.method == "POST":
@@ -116,7 +118,7 @@ def add_houseplant():
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_houseplant.html", categories=categories)
 
-
+#function to update houseplant record in database
 @app.route("/edit_houseplant/<houseplant_id>", methods=["GET", "POST"])
 def edit_houseplant(houseplant_id):
     if request.method == "POST":
@@ -129,21 +131,22 @@ def edit_houseplant(houseplant_id):
             "date": request.form.get("date"),
             "created_by": session["user"]
         }
-        mongo.db.houseplants.update({"_id": ObjectId(houseplant_id)}, submit)
+        mongo.db.houseplants.update({"_id": ObjectId(houseplant_id)}, submit
+        )
         flash("Houseplant Successfully Updated")
 
     houseplant = mongo.db.houseplants.find_one({"_id": ObjectId(houseplant_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_houseplant.html", houseplant=houseplant, categories=categories) 
 
-
+#function to delete houseplant record from database
 @app.route("/delete_houseplant/<houseplant_id>")
 def delete_houseplant(houseplant_id):
     mongo.db.houseplants.delete_one({"_id": ObjectId(houseplant_id)})
     flash("Houseplant Successfully Deleted")
     return redirect(url_for("get_houseplants")) 
 
-
+#function to select categories
 @app.route("/get_categories")
 def get_categories():
     categories = list(mongo.db.categories.find().sort("category_name", 1))
