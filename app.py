@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_houseplants")
 def get_houseplants():
-    houseplants = mongo.db.houseplants.find()
+    houseplants = list(mongo.db.houseplants.find())
     return render_template("houseplants.html", houseplants=houseplants)
     
 
