@@ -119,9 +119,29 @@ def add_houseplant():
 
 @app.route("/edit_houseplant/<houseplant_id>", methods=["GET", "POST"])
 def edit_houseplant(houseplant_id):
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "horticultural_name": request.form.get("horticultural_name"),
+            "common_name": request.form.get("common_name"),
+            "image_url": request.form.get("image_url"),
+            "description": request.form.get("description"),
+            "date": request.form.get("date"),
+            "created_by": session["user"]
+        }
+        mongo.db.houseplants.update({"_id": ObjectId(houseplant_id)}, submit)
+        flash("Houseplant Successfully Updated")
+
     houseplant = mongo.db.houseplants.find_one({"_id": ObjectId(houseplant_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_houseplant.html", houseplant=houseplant, categories=categories)           
+    return render_template("edit_houseplant.html", houseplant=houseplant, categories=categories) 
+
+
+@app.route("/delete_houseplant/<houseplant_id>")
+def delete_houseplant(houseplant_id):
+    mongo.db.tasks.remove({"_id": ObjectId(houseplant_id)})
+    flash("Houseplant Successfully Deleted")
+    return redirect(url_for("get_houseplants"))             
 
 
 if __name__ == "__main__":
