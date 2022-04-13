@@ -104,6 +104,7 @@ def add_houseplant():
             "category_name": request.form.get("category_name"),
             "horticultural_name": request.form.get("horticultural_name"),
             "common_name": request.form.get("common_name"),
+            "image_url": request.form.get("image_url"),
             "description": request.form.get("description"),
             "date": request.form.get("date"),
             "created_by": session["user"]
