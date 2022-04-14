@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="green-text text-darken-4 center-align">All Houseplants</h3>
+ 
+
+<div class="row center">
+  <h3 class="green-text text-darken-4 center-align">Get your next green thumb idea</h3>
+  <h5>Join us to find out more about houseplants</h5>
+</div>
 
     <div class="row card-panel grey lighten-5">
       <form action="{{ url_for('search') }}" method="post" class="col s12">
