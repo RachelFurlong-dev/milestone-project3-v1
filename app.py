@@ -23,6 +23,13 @@ mongo = PyMongo(app)
 def get_houseplants():
     houseplants = list(mongo.db.houseplants.find())
     return render_template("houseplants.html", houseplants=houseplants)
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():  
+    query = request.form.get("query")
+    houseplants = list(mongo.db.houseplants.find({"$text": {"$search": query}}))
+    return render_template("houseplants.html", houseplants=houseplants) 
     
 
 @app.route("/register", methods=["GET", "POST"])
