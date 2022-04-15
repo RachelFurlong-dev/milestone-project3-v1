@@ -18,7 +18,7 @@
           </div>
           <div class="col s12 m4">
               <a href="{{ url_for('get_houseplants') }}" class="red btn text-shadow">Reset</a>
-              <button type="submit" class="green accent-3 btn text-shadow">
+              <button type="submit" class="green darken-4 btn text-shadow">
               <i class="fas fa-search left"></i>Search
               </button>
           </div>
@@ -41,13 +41,13 @@
                 <small>Added by: {{ houseplant.created_by }}</small>
                 <br><br>
                 <small class="right">{{ houseplant.date }}</small>
-                <small class="left green-text text-darken-3"><strong>{{ houseplant.category_name }}</strong></small>
+                <small class="left green-text text-darken-4"><strong>{{ houseplant.category_name }}</strong></small>
                 <br>
               </div>
               <div class=" grey lighten-4 center">
                
                 <a href="{{ url_for('delete_houseplant', houseplant_id=houseplant._id) }}" class="btn-small red accent-3">Delete</a>
-                <a href="{{ url_for('edit_houseplant', houseplant_id=houseplant._id) }}" class="btn-small green accent-3">Edit</a>
+                <a href="{{ url_for('edit_houseplant', houseplant_id=houseplant._id) }}" class="btn-small green darken-4">Edit</a>
                 
               </div>
               <div class="card-reveal">
