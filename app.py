@@ -141,7 +141,7 @@ def edit_houseplant(houseplant_id):
             "date": request.form.get("date"),
             "created_by": session["user"]
         }
-        mongo.db.houseplants.update({"_id": ObjectId(houseplant_id)}, submit
+        mongo.db.houseplants.replace_one({"_id": ObjectId(houseplant_id)}, submit
         )
         flash("Houseplant Successfully Updated")
 
