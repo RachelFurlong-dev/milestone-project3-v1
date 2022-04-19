@@ -24,12 +24,26 @@
                         <label for="password">Password</label>
                     </div>
                 </div>
+                     <!-- avatar -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select class="icons" name="avatar" id="avatar" required>
+                          <option value="" disabled selected>Choose your avatar</option>
+                          <option value="gardener.png" data-icon="{{ url_for('static', filename='avatars/gardener.png') }}">Gardener</option>
+                          <option value="" data-icon="images/office.jpg">example 2</option>
+                          <option value="" data-icon="images/yuna.jpg">example 3</option>
+                        </select>
+                        <label>Images in select</label>
+                    </div>
+                </div>
                 <!-- register -->
                 <div class="row">
                     <button type="submit" class="col s12 btn-large green darken-4 text-shadow">
                         Register <i class="fas fa-sign-in-alt"></i>
                     </button>
                 </div>
+                
+                
             </div>
         </form>
     </div>

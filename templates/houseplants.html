@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
- 
 
 <div class="row center">
   <h3 class="center-align">Get your next green thumb idea</h3>
@@ -45,10 +44,10 @@
                 <br>
               </div>
               <div class=" grey lighten-4 center">
-               
+               {% if houseplant.created_by|lower == session.user|lower %}
                 <a href="{{ url_for('delete_houseplant', houseplant_id=houseplant._id) }}" class="btn-small red accent-3">Delete</a>
                 <a href="{{ url_for('edit_houseplant', houseplant_id=houseplant._id) }}" class="btn-small green darken-4">Edit</a>
-                
+              {% endif %}
               </div>
               <div class="card-reveal">
                 <span class="card-title "><strong>Houseplant care:</strong><i class="fa-solid fa-xmark right"></i></span>
@@ -67,11 +66,15 @@
     <footer>
       <div class="footer-copyright center">
         <div class="container">
-        <p class="black-text">Copyright &copy; Houseplantr 2022</p>
+        <p class="black-text">Copyright &copy; Houseplantr <span id="year"></span></p>
         </div>
       </div>
     </footer>
 
   {% endblock %}
-</body>
-</html>
+
+  {% block scripts %}
+  <script>
+    $("#year").text(new Date().getFullYear());
+  </script>
+    {% endblock %}
