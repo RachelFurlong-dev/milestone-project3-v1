@@ -51,9 +51,21 @@
               </div>
               <div class="card-reveal">
                 <span class="card-title "><strong>Houseplant care:</strong><i class="fa-solid fa-xmark right"></i></span>
-                <span class="card-title green-text text-darken-4"><strong>{{ houseplant.horticultural_name }}</strong></span>
+                <div class="center">
+                <hr>
+                <br>
+                <img src="{{ url_for('static', filename='avatars/watering-plants.png') }}" alt="watering plants icon" width="100" height="100">
+                <span class="card-title green-text text-darken-4"><strong>{{ houseplant.common_name }}</strong></span>
                 <p class="grey-text text-darken-4" >{{ houseplant.houseplant_care }}</p>
+                <hr>
+                <br>
+                <br>
+                <span class="card-title grey-text text-darken-4"><strong>Houseplantr TV</strong></span>
+                <p>Look after your houseplants!</p>
+                <a href="" class="btn-large red accent-4"><i class="fab fa-youtube"></i></a>
+                <a href="" class="btn-large light-grey lighten-1"><i class="fab fa-vimeo-v"></i></a>
               </div>
+                </div>
             </div>
         </div>
         {% endfor %}
