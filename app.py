@@ -18,6 +18,20 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# @login_required decorator
+# https://flask.palletsprojects.com/en/2.0.x/patterns/viewdecorators/#login-required-decorator
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        # no "user" in session
+        if "user" not in session:
+            flash("You must log in to view this page")
+            return redirect(url_for("login"))
+        # user is in session
+        return f(*args, **kwargs)
+    return decorated_function
+
+
 @app.route("/")
 @app.route("/get_houseplants")
 def get_houseplants():
@@ -108,6 +122,7 @@ def logout():
 
 #function to add houseplant record to database
 @app.route("/add_houseplant", methods=["GET", "POST"])
+@login_required
 def add_houseplant():
     if request.method == "POST":
         houseplant = {
@@ -127,8 +142,10 @@ def add_houseplant():
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_houseplant.html", categories=categories)
 
+
 #function to update houseplant record in database
 @app.route("/edit_houseplant/<houseplant_id>", methods=["GET", "POST"])
+@login_required
 def edit_houseplant(houseplant_id):
     if request.method == "POST":
         submit = {
@@ -147,23 +164,37 @@ def edit_houseplant(houseplant_id):
 
     houseplant = mongo.db.houseplants.find_one({"_id": ObjectId(houseplant_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_houseplant.html", houseplant=houseplant, categories=categories) 
+    return render_template("edit_houseplant.html", houseplant=houseplant, categories=categories)
+
+    # not the correct user to edit this task
+    flash("You don't have access to edit this task")
+    return redirect(url_for("get_houseplants"))
+
 
 #function to delete houseplant record from database
 @app.route("/delete_houseplant/<houseplant_id>")
+@login_required
 def delete_houseplant(houseplant_id):
     mongo.db.houseplants.delete_one({"_id": ObjectId(houseplant_id)})
     flash("Houseplant Successfully Deleted")
     return redirect(url_for("get_houseplants")) 
 
+    # not the correct user to edit this task
+    flash("You don't have access to edit this task")
+    return redirect(url_for("get_houseplants"))
+    
+
 #function to select categories
 @app.route("/get_categories")
+@login_required
 def get_categories():
     categories = list(mongo.db.categories.find().sort("category_name", 1))
     return render_template("categories.html", categories=categories)
 
+
 #function to add category to database
 @app.route("/add_category", methods=["GET", "POST"])
+@login_required
 def add_category():
     if request.method == "POST":
         category = {
@@ -175,8 +206,10 @@ def add_category():
 
     return render_template("add_category.html")
 
+
 #function to edit category in database
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
+@login_required
 def edit_category(category_id):
     if request.method == "POST":
         submit = {
@@ -189,8 +222,10 @@ def edit_category(category_id):
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     return render_template("edit_category.html", category=category)
 
+
 #function to delete category from database
 @app.route("/delete_category/<category_id>")
+@login_required
 def delete_category(category_id):
     mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
