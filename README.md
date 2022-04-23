@@ -20,29 +20,29 @@ A future ecommerce opportunity could be a marketplace where users can buy and se
 This is a project to complete the requirements of the Code Institute Diploma in Web Development Milestone Project 3 
 
 
-# User Experience
-### User stories
+# User Experience:
+## User stories
 
-- As a first time visitor:
+### As a first time visitor:
     - I want to easily understand the main purpose of the site on all devices including mobile, ipad and desktop.
     - I want to be able to easily navigate throughout the site, find out more about the content of the site and build trust in the brand.
     - I want to be able to find out how users can interact with the app.
     - I want to be able to easily register as a user.
     - I want to be able to log out of my account.
 
-- As a returning visitor:
+### As a returning visitor:
     - I want to read about a wide range of houseplants and how to care for them on the app.
     - I want to be able to search the database to view specific houseplants.
     - I want to be able to upload my best houseplant images and information and display them on Houseplantr.
     - I want to be able to edit my houseplant records.
     - I want to delete houseplants I don’t want on my profile.
 
-- Nice to have:
+### Nice to have:
     - I would like to be able to filter and view my uploaded houseplants collection. 
     - I would like to be able to delete my account.
 
 
-# Design
+# Design:
 ## Colour scheme
     I have chosen to use the colour green primarily, alongside grey and black & also red as a contrasting accent colour.   
     Green is universally associated with nature, and references the organic properties of houseplants.   
@@ -59,15 +59,16 @@ This is a project to complete the requirements of the Code Institute Diploma in 
 ## Images 
     Imagery creates impact across the app and is key to visitor use and enjoyment of the app. The app features user generated content selected by users to display their own houseplants.   
     Many of the images used for demonstration purposes, have been selected from sites including Pexels and Unsplash with an attribution provided in the READme.
-## Wireframes
+# Wireframes
+All my wireframes have been created in Adobe XD. I am familiar with Adobe programmes so I am more efficient. You can see my wireframes in the folder [here](/wireframes)
 
 # Database Design
-I have structured a database using MongoDB, a document-oriented database program to support the Houseplantr app.  
+I have structured a database using [MongoDB](https://www.mongodb.com/), a document-oriented database program to support the Houseplantr app.  
 I created a database structure within a collection, to store Houseplants & their attributes, user information and houseplant categories.
 
 ![Entity Relationship Diagram](wireframes/Houseplantr-Entity-Relationship-Diagram.png)
 
-# Features
+# Features:
 - Responsive on all device sizes
 - Interactive elements
 - Profile registration/Log-in functionality
@@ -81,14 +82,14 @@ I created a database structure within a collection, to store Houseplants & their
 - Build upon plant care on the card reveal section, to promote a Houseplantr podcast on YouTube.
 - Add links from the app to Houseplantr's social media sites.
 
-## Technologies Used
-### Languages Used
+# Technologies Used:
+## Languages 
 - HTML
 - CSS
 - JS
 - Python
 
-## Frameworks, Libraries & Programs used
+## Frameworks, Libraries & Programs
 - Materialize 1.0.0
     - Materialize was used to assist with the responsiveness and styling of the website; especially useful are the features for creating forms.
 - Google Fonts
@@ -112,16 +113,16 @@ I created a database structure within a collection, to store Houseplants & their
 - MongoDB
     - MongoDB was used to store the data required for the project. It is a document-oriented NoSQL database used for high volume data storage.
 
-# Testing    
+# Testing:    
 ## Creating an account
 I have created an admin account which has access to categories pages in addition to the main account pages, a personal account and 6 test accounts in order to test the functionality of the website. 
 ## Add, Edit & delete a houseplant record
 I added a number of fake records to test the add houseplant form functioned correctly, I edited records and then finally deleted them. 
 ## Further Testing
 - The App was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
-- The App was viewed on a variety of devices such as Desktop, Laptop, iPad, iPhone7, iPhone 8 & iPhoneX.
+- The App was viewed on a variety of devices such as Desktop, Laptop, iPad Air, iPhone SE, iPhone12 Pro , Surface Duo and Samsung Galaxy.
 - Testing was done to ensure that all pages were linking correctly.
-# Validators
+# Validators:
 ### HTML:
 
 ### W3C Markup Validator 
@@ -146,7 +147,7 @@ All .py files are PEP8 compliant.
 - Copyright Date Script [Tim Nelson](https://github.com/TravelTimN)
 - Defensive programming [Tim Nelson](https://github.com/TravelTimN)
 
-# Bugfixes
+# Bugfixes:
 ## Editing a record method
 I used the method in the original Code Institute video within the edit function, but this didn’t work due to Pymongo having been updated by the developers & it caused an error. I then tried the update_one method as outlined in [W3 schools](https://www.w3schools.com/python/python_mongodb_update.asp)  
 When that didn't work either, I research online and found a fix from [Stack Overflow](https://stackoverflow.com/questions/30605638/why-does-upsert-a-record-using-update-one-raise-valueerror) where replace_one was recommended and that worked. 
