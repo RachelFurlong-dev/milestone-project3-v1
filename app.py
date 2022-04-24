@@ -40,11 +40,12 @@ def get_houseplants():
 
 
 @app.route("/search", methods=["GET", "POST"])
-def search():  
+def search():
     query = request.form.get("query")
-    houseplants = list(mongo.db.houseplants.find({"$text": {"$search": query}}))
-    return render_template("houseplants.html", houseplants=houseplants) 
-    
+    houseplants = list(mongo.db.houseplants.find(
+                        {"$text": {"$search": query}}))
+    return render_template("houseplants.html", houseplants=houseplants)
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -81,7 +82,7 @@ def login():
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                    existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
                     flash("Welcome, {}".format(request.form.get("username")))
                     return redirect(url_for(
@@ -118,9 +119,8 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
-#CRUD functionality
 
-#function to add houseplant record to database
+# function to add houseplant record to database
 @app.route("/add_houseplant", methods=["GET", "POST"])
 def add_houseplant():
     if request.method == "POST":
@@ -142,7 +142,7 @@ def add_houseplant():
     return render_template("add_houseplant.html", categories=categories)
 
 
-#function to update houseplant record in database
+# function to update houseplant record in database
 @app.route("/edit_houseplant/<houseplant_id>", methods=["GET", "POST"])
 def edit_houseplant(houseplant_id):
     if request.method == "POST":
@@ -156,31 +156,34 @@ def edit_houseplant(houseplant_id):
             "date": request.form.get("date"),
             "created_by": session["user"]
         }
-        mongo.db.houseplants.replace_one({"_id": ObjectId(houseplant_id)}, submit
-        )
+        mongo.db.houseplants.replace_one(
+                            {"_id": ObjectId(houseplant_id)}, submit)
         flash("Houseplant Successfully Updated")
 
-    houseplant = mongo.db.houseplants.find_one({"_id": ObjectId(houseplant_id)})
+    houseplant = mongo.db.houseplants.find_one(
+                        {"_id": ObjectId(houseplant_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_houseplant.html", houseplant=houseplant, categories=categories)
+    return render_template(
+                        "edit_houseplant.html", houseplant=houseplant,
+                        categories=categories)
 
 
-#function to delete houseplant record from database
+# function to delete houseplant record from database
 @app.route("/delete_houseplant/<houseplant_id>")
 def delete_houseplant(houseplant_id):
     mongo.db.houseplants.delete_one({"_id": ObjectId(houseplant_id)})
     flash("Houseplant Successfully Deleted")
     return redirect(url_for("get_houseplants"))
-    
 
-#function to select categories
+
+# function to select categories
 @app.route("/get_categories")
 def get_categories():
     categories = list(mongo.db.categories.find().sort("category_name", 1))
     return render_template("categories.html", categories=categories)
 
 
-#function to add category to database
+# function to add category to database
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":
@@ -194,14 +197,14 @@ def add_category():
     return render_template("add_category.html")
 
 
-#function to edit category in database
+# function to edit category in database
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
     if request.method == "POST":
         submit = {
             "category_name": request.form.get("category_name")
         }
-        mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
+        mongo.db.categories.replace_one({"_id": ObjectId(category_id)}, submit)
         flash("Category Successfully Updated")
         return redirect(url_for("get_categories"))
 
@@ -209,12 +212,12 @@ def edit_category(category_id):
     return render_template("edit_category.html", category=category)
 
 
-#function to delete category from database
+# function to delete category from database
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
     mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
-    return redirect(url_for("get_categories"))    
+    return redirect(url_for("get_categories"))
 
 
 if __name__ == "__main__":
