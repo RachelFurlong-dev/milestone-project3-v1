@@ -1,4 +1,5 @@
 import os
+from functools import wraps
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -101,6 +102,7 @@ def login():
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
+@login_required
 def profile(username):
     # grab the session user's username from db
     user = mongo.db.users.find_one(
@@ -113,6 +115,7 @@ def profile(username):
 
 
 @app.route("/logout")
+@login_required
 def logout():
     # remove user from session cookie
     flash("You have been logged out")
@@ -122,6 +125,7 @@ def logout():
 
 # function to add houseplant record to database
 @app.route("/add_houseplant", methods=["GET", "POST"])
+@login_required
 def add_houseplant():
     if request.method == "POST":
         houseplant = {
@@ -144,6 +148,7 @@ def add_houseplant():
 
 # function to update houseplant record in database
 @app.route("/edit_houseplant/<houseplant_id>", methods=["GET", "POST"])
+@login_required
 def edit_houseplant(houseplant_id):
     if request.method == "POST":
         submit = {
@@ -170,6 +175,7 @@ def edit_houseplant(houseplant_id):
 
 # function to delete houseplant record from database
 @app.route("/delete_houseplant/<houseplant_id>")
+@login_required
 def delete_houseplant(houseplant_id):
     mongo.db.houseplants.delete_one({"_id": ObjectId(houseplant_id)})
     flash("Houseplant Successfully Deleted")
@@ -178,6 +184,7 @@ def delete_houseplant(houseplant_id):
 
 # function to select categories
 @app.route("/get_categories")
+@login_required
 def get_categories():
     categories = list(mongo.db.categories.find().sort("category_name", 1))
     return render_template("categories.html", categories=categories)
@@ -185,6 +192,7 @@ def get_categories():
 
 # function to add category to database
 @app.route("/add_category", methods=["GET", "POST"])
+@login_required
 def add_category():
     if request.method == "POST":
         category = {
@@ -199,6 +207,7 @@ def add_category():
 
 # function to edit category in database
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
+@login_required
 def edit_category(category_id):
     if request.method == "POST":
         submit = {
@@ -214,6 +223,7 @@ def edit_category(category_id):
 
 # function to delete category from database
 @app.route("/delete_category/<category_id>")
+@login_required
 def delete_category(category_id):
     mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
