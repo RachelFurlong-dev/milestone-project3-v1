@@ -104,14 +104,16 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 @login_required
 def profile(username):
-    # grab the session user's username from db
-    user = mongo.db.users.find_one(
-        {"username": session["user"]})
+    # grab only the session["user"] profile
+    if session["user"].lower() == username.lower():
+        # find the session["user"] record
+        user = mongo.db.users.find_one({"username": username})
+        # grab only the houseplants by this session["user"]
+        houseplants = list(mongo.db.houseplants.find({"created_by": username}))
+        return render_template("profile.html", user=user, houseplants=houseplants)
 
-    if session["user"]:
-        return render_template("profile.html", user=user)
-
-    return redirect(url_for("login"))
+    # take the incorrect user to their own profile
+    return redirect(url_for("profile", username=session["user"]))    
 
 
 @app.route("/logout")
@@ -186,23 +188,36 @@ def delete_houseplant(houseplant_id):
 @app.route("/get_categories")
 @login_required
 def get_categories():
-    categories = list(mongo.db.categories.find().sort("category_name", 1))
-    return render_template("categories.html", categories=categories)
+    # admin-only page
+    if session["user"] == "admin":
+        categories = list(mongo.db.categories.find().sort("category_name", 1))
+        return render_template("categories.html", categories=categories)
+
+    # user is not admin
+    flash("You do not have access to categories - why not add a houseplant instead?")
+    return redirect(url_for("get_houseplants"))
 
 
 # function to add category to database
 @app.route("/add_category", methods=["GET", "POST"])
 @login_required
 def add_category():
-    if request.method == "POST":
-        category = {
-            "category_name": request.form.get("category_name")
-        }
-        mongo.db.categories.insert_one(category)
-        flash("New Category Added")
-        return redirect(url_for("get_categories"))
+    # admin-only page
+    if session["user"] == "admin":
+        # add a new category
+        if request.method == "POST":
+            category = {
+                "category_name": request.form.get("category_name")
+            }
+            mongo.db.categories.insert_one(category)
+            flash("New Category Added")
+            return redirect(url_for("get_categories"))
 
-    return render_template("add_category.html")
+        return render_template("add_category.html")
+
+    # user is not admin
+    flash("You do not have access to add categories - why not add a houseplant instead?")
+    return redirect(url_for("get_houseplants"))
 
 
 # function to edit category in database
