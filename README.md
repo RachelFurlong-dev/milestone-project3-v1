@@ -80,13 +80,34 @@ The collection 'users' stores the username, salted password and chosen avatar of
 
 # Features:
 
-## Current Features
+## Current Features:
+## Responsive 
+- I tested the app on [http://ami.responsivedesign.is/](http://ami.responsivedesign.is/?url=https%3A%2F%2Fhouseplantr-v1.herokuapp.com%2F). 
+![Responsive Mockup](screenshots/mockups.png). 
+### I tested the app on the following devices:
+- 
 - Responsive on all device sizes
-- Profile registration/Log-in functionality
-- Create, Read, Update & Delete records
+# CRUD 
+ - Create, Read, Update & Delete records
+ - Creating a record & form validation
+## User authentication
+- I used Flask together with Werkzeug for security features, specifically "generate_password_hash" and "check_password_hash" for user password security. For additional security, Werkzeug's security features then salted the string with random data to make a password which would be hard to crack. I created a Login template and Registration template each containing a form with relevant input fields and button developed with Materialize. I added a link on each page template incase new users were on the Login page or existing users on the Registration page, to enable user to go to the page they required quickly. 
+![Login Page](screenshots/loginscreenshot.png) 
+![Registraion page](screenshots/regscreenshot.png)
+## Search functionality to look up houseplants via a Text Index
+- I created a Text Index using the Python interpreter in the command-line. The Index was created on the houseplants collection. The index contains a list of tuples which represent the fields in the houseplant collection for the user to search. I created and styled an input field using the framework Materialize to allow the user to search the app using the Text Index easily. I added a reset option to clear the previous search, so the user can easily enter another search term.  
+![Search box](screenshots/search-input.png). 
+## Flash messages
+- I created functionality so that flash messages update the user whenever they have completed an action. 
+![Examples of messages that are displayed to user](screenshots/flash-message-examples.png)
 - User generated content
-- Add a selection of avatars for new users to choose for their Houseplantr profile page.
-- Ability for users to filter just their own houseplants added to the app
+## Add a selection of avatars for new users to choose for their Houseplantr profile page.
+I added the functionality within the  register function and a list of icons for new users to choose from when they register on the app. The avatar then displays on the user's profile page.
+- List of Avatars on register page:  
+![List of avatars](screenshots/list-of-avatars.png)
+- Example Avatar displayed on profile page:  
+![Profile page avatar](screenshots/user-avatar.png)
+## Ability for users to filter just their own houseplants added to the app
 
 ## Potential Features
 - Add an about page to enable user to find out more about the people behinf houseplantr
