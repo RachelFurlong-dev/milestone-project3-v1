@@ -2,7 +2,7 @@
 
 [Houseplantr live site](https://houseplantr-v1.herokuapp.com/)
 
-![Houseplantr App](wireframes/mockups.png)
+![Houseplantr App](screenshots/mockups.png)
 Want to share your houseplant love? Join our community on Houseplantr and share your knowledge and Houseplant recommendations with others. Create your free account, and upload and share your favourite houseplants and houseplant tips with the community.
 
 # About Houseplantr
@@ -24,63 +24,77 @@ This is a project to complete the requirements of the Code Institute Diploma in 
 ## User stories
 
 ### As a first time visitor:
-    - I want to easily understand the main purpose of the site on all devices including mobile, ipad and desktop.
-    - I want to be able to easily navigate throughout the site, find out more about the content of the site and build trust in the brand.
-    - I want to be able to find out how users can interact with the app.
-    - I want to be able to easily register as a user.
-    - I want to be able to log out of my account.
+- I want to easily understand the main purpose of the site on all devices including mobile, ipad and desktop.
+- I want to be able to easily navigate throughout the site, find out more about the content of the site and build trust in the brand.
+- I want to be able to find out how users can interact with the app.
+- I want to be able to easily register as a user.
+- I want to be able to log out of my account.
 
 ### As a returning visitor:
-    - I want to read about a wide range of houseplants and how to care for them on the app.
-    - I want to be able to search the database to view specific houseplants.
-    - I want to be able to upload my best houseplant images and information and display them on Houseplantr.
-    - I want to be able to edit my houseplant records.
-    - I want to delete houseplants I don’t want on my profile.
+- I want to read about a wide range of houseplants and how to care for them on the app.
+- I want to be able to search the database to view specific houseplants.
+- I want to be able to upload my best houseplant images and information and display them on Houseplantr.
+- I want to be able to edit my houseplant records.
+- I want to delete houseplants I don’t want on my profile.
 
 ### Nice to have:
-    - I would like to be able to filter and view my uploaded houseplants collection. 
-    - I would like to be able to delete my account.
+- I would like to be able to filter and view my uploaded houseplants collection. 
+- I would like to be able to delete my account.
 
 
 # Design:
 ## Colour scheme
-    I have chosen to use the colour green primarily, alongside grey and black & also red as a contrasting accent colour.   
-    Green is universally associated with nature, and references the organic properties of houseplants.   
-    A subtle light grey which makes the layout background sit further back visually behind the houseplant ‘cards’, creating a subtle 3d effect.  
-    Red is used as a warning colour on buttons used for deletion. 
-    - #1b5e20 dark green
-    - #ff1744 red accent
-    - #f8f8f8 light grey
-    - #222222 black
+I have chosen to use the dark green as the main colour, alongside grey and black, as well as using the accent colours red and light green.   
+Green is universally associated with nature, and references the organic properties of houseplants.   
+A subtle light grey makes the layout background sit further back visually behind the houseplant ‘cards’, creating a subtle 3d effect.  
+Red is used as a warning colour on buttons used for deletion. Green accent is used for the card reveal backgrounds to easily differentiate the card back, from the card front, and also as the button colour for users to view only their own houseplant entries.
+- #1b5e20 dark green
+- #b9f6ca green accent
+- #ff1744 red accent
+- #f8f8f8 light grey
+- #222222 black
 
 ## Typography
-    Inter is the font family used across the app with sans-serif as a fall-back font.   
-    Inter is a variable font with 9 weights specifically designed for computer screens by Rasmus Andersson. Inter is a free and open source font available via Google Fonts.
+Inter is the font family used across the app with sans-serif as a fall-back font.   
+Inter is a variable font with 9 weights specifically designed for computer screens by Rasmus Andersson. Inter is a free and open source font available via Google Fonts.
 ## Images 
-    Imagery creates impact across the app and is key to visitor use and enjoyment of the app. The app features user generated content selected by users to display their own houseplants.   
-    Many of the images used for demonstration purposes, have been selected from sites including Pexels and Unsplash with an attribution provided in the READme.
+Imagery creates impact across the app and is key to visitor use and enjoyment of the app. The app features user generated content selected by the users to display their own houseplants.   
+The images used for demonstration purposes and avatars, have been selected from sites including [Pexels](https://www.pexels.com/) and [Unsplash](https://unsplash.com/)
+
 # Wireframes
 All my wireframes have been created in Adobe XD. I am familiar with Adobe programmes so I am more efficient. You can see my wireframes in the folder [here](/wireframes)
 
 # Database Design
-I have structured a database using [MongoDB](https://www.mongodb.com/), a document-oriented database program to support the Houseplantr app.  
-I created a database structure within a collection, to store Houseplants & their attributes, user information and houseplant categories.
-
-![Entity Relationship Diagram](wireframes/Houseplantr-Entity-Relationship-Diagram.png)
+- I started by organising the information I needed to store in an entity relationship diagram.
+![Entity Relationship Diagram](screenshots/entity-relationship-diagram.png)
+- I have structured a database using [MongoDB](https://www.mongodb.com/), a document-oriented database program to support the Houseplantr app.  
+Based on this information, I then created a database structure called houseplantr_db, within which I created 3 collections: categories, houseplants and users.
+- ![Houseplantr Mongo DB database](screenshots/dbhouseplantr.png)
+The collection 'houseplants' stores the specific fields of information submitted by the user via the Add Houseplant page form on the app when the user is logged in.
+- ![Houseplants collection](screenshots/dbhouseplant-records.png)
+The collection 'categories' stores the categories within which the houseplant records are grouped - for example, spiky, succukent, varigated, flowering, traiing and foliage.   
+The admin user can add or delete categories when logged in to the Manage Categories page. 
+- ![Categories collection](screenshots/dbcategories.png).  
+The collection 'users' stores the username, salted password and chosen avatar of each user who has filled in the [registration page](https://houseplantr-v1.herokuapp.com/register) on the app.
+- ![Users collection](screenshots/dbregistered-users.png)
 
 # Features:
+
+## Current Features
 - Responsive on all device sizes
-- Interactive elements
 - Profile registration/Log-in functionality
 - Create, Read, Update & Delete records
 - User generated content
-
-## Potential Features
 - Add a selection of avatars for new users to choose for their Houseplantr profile page.
 - Ability for users to filter just their own houseplants added to the app
+
+## Potential Features
+- Add an about page to enable user to find out more about the people behinf houseplantr
+- Add a contact form
+
 ## Promotional Opportunity
 - Build upon plant care on the card reveal section, to promote a Houseplantr podcast on YouTube.
-- Add links from the app to Houseplantr's social media sites.
+- Add links from the app to Houseplantr's social media sites including YouTube and Vimeo.
 
 # Technologies Used:
 ## Languages 
