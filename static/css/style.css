@@ -61,3 +61,8 @@ h3 {
 .dropdown-content li a, .dropdown-content li span{
     color:#1b5e20;
 }
+
+/*modal styles*/
+.modal.bottom-sheet {
+    max-height: 75%;
+}

@@ -41,7 +41,7 @@ This is a project to complete the requirements of the Code Institute Diploma in 
 ### Potential user experience features to be added in the future: 
 - User to be able to delete account.
 - User to be able to change password.
-- User to be able to indicate and upvote my favourite houseplants.
+- User to be able to indicate and upvote favourite houseplants.
 - User to be provided with an about page to find out more about Houseplantr.
 
 
@@ -152,9 +152,12 @@ I added the functionality within the  register function and a list of icons for 
 - Example Avatar displayed on profile page:  
 ![Profile page avatar](screenshots/user-avatar.png)
 ## Ability for users to filter just their own houseplants added to the app
+On the user profile page (profile.html), users can click the My Houseplants button to view a popup modal of just their own houseplants they have added to the app.I added the functionality within the route decorator which checks if the Mongo username field matches that of the input-field for'username' entered on a form at login.  
+![Display own houseplants modal](screenshots/user-own-houseplants-modal.png). 
+![Display only user's houseplants functionality](screenshots/username-profile.png)
 
 ## Potential Features
-- Add an about page to enable user to find out more about the people behinf houseplantr
+- Add an about page to enable user to find out more about the people behind Houseplantr app.
 - Add a contact form
 
 ## Promotional Opportunity
@@ -191,6 +194,10 @@ I added the functionality within the  register function and a list of icons for 
     - The project was deployed to Heroku. Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
 - MongoDB
     - MongoDB was used to store the data required for the project. It is a document-oriented NoSQL database used for high volume data storage.
+
+# Deployment 
+
+# How to deploy Houseplantr App
 
 # Testing:    
 ## Creating an account
