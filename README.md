@@ -90,29 +90,49 @@ The collection 'users' stores the username, salted password and chosen avatar of
 ### I tested the app on the following devices:
 - 
 - Responsive on all device sizes
+## Navigation:
+
 # CRUD 
 I have incorporated features in the Houseplantr App to enable to users to Create, Read, Update & Delete houseplant records. 
-## Create (Add a houseplant record)
-- I created a page called add_houseplant.html and added function in the app.py file called add_houseplant. I then created and styled interface elements to enable users to input text and an image of their chosen houseplant. I used a dropdown list for category selection and a datepicker to ensure the date added was entered into the database in the correct format.
+## Add a houseplant record
+- I created a page called add_houseplant.html and added the function in the app.py file called add_houseplant which uses the "GET" and "POST". The GET method is to used to request data , The POST method is used to send the data to the server. I then created and styled input text fields to enable users to input text and also an input field for users to add the url of an image of their chosen houseplant. I used a dropdown list for category selection and a datepicker to ensure the date added was entered into the database in the correct format. Specific minimum and maximum entry lengths were applied to each text field.
 ## Add houseplant user interface:
 ![add_houseplant user interface](screenshots/add-houseplant_layout.png)
 ## Input fields features:
 ![category drop-down list](screenshots/drop-down-list.png)
 ![date selection via date-picker](screenshots/calendar.png)
-Specific minimum and maximum entry lengths were applied to each field.
 ## add_houseplant function:
 ![add_houseplant function](screenshots/add-houseplant-function.png)
-## User authentication
+### add_category function:
+I created an add_category.html template and interface to manage categories. There is a green button to add categories at the top of the page under the title. I then created a function to add categories. The functionality was created in the same way as the add_houseplant record, except this was limited to admin use only by using an if statement within the function.  
+![add_category function](screenshots/admin-only.png)
+## Update a record:
+I created edit_houseplant.html to contain the interface for users who want to edit their houseplant record. I used  the .replace_one() method. The .replace_one() method takes two parameters, which are dictionaries; the function for updating a houseplant record involves searching for a houseplant in the database by the houseplant ID coming from the route. Once found, then the houseplant record is updated with the submit dictionary, which contains all the form elements. After that's been updated in the database, I displayed the flash() message "Houseplant Successfully Updated".
+![Updating a houseplant record](screenshots/edit_houseplant-function.png)
+## Update categories
+I created an edit_category.html template and interface and a function to edit categories. The functionality was created in the same way as the create houseplant record, except this was limited to admin use only by using an if statement within the function.  
+## Delete a record:
+The user can delete a houseplant by clicking the red delete button at the foot of the houseplant record. To do this I created a function as follows: The @app.route decorator is '/delete_houseplant', which takes the 'houseplant_id' as a variable. I then selected the specific houseplant by the ObjectId that matched the 'houseplant_id' variable. As soon as the record is removed I provide the user with a flash() message "Houseplant successfully deleted".  
+![delete_houseplant function](screenshots/delete_houseplant-function.png). 
+[Delete houseplant record button]()
+### Delete a category:
+The user cand delete a record by clicking a delete button for the specific category within the categoires dashboard. To do this, I created a function to delete categories. The functionality was created in the same way as the delete houseplant record, except this was limited to admin use only by using an if statement within the function.  
+![delete_category function](screenshots/delete_category-function.png)
+# User authentication
 - I used Flask together with Werkzeug for security features, specifically "generate_password_hash" and "check_password_hash" for user password security. For additional security, Werkzeug's security features then salted the string with random data to make a password which would be hard to crack. I created a Login template and Registration template each containing a form with relevant input fields and button built using the responsive CSS framework Materialize. I added a link on each page template incase new users were on the Login page or existing users on the Registration page, to enable user to go to the page they required quickly. 
 ![Login Page](screenshots/loginscreenshot.png) 
 ![Registraion page](screenshots/regscreenshot.png)
+
+## Additional UX features:
 ## Search functionality to look up houseplants via a Text Index
 - I created a Text Index using the Python interpreter in the command-line. The Index was created on the houseplants collection. The index contains a list of tuples which represent the fields in the houseplant collection for the user to search. I created and styled an input field using the framework Materialize to allow the user to search the app using the Text Index easily. I added a reset option to clear the previous search, so the user can easily enter another search term.  
 ![Search box](screenshots/search-input.png). 
 ## Flash messages
-- I created functionality so that flash messages update the user whenever they have completed an action. 
+- I created functionality so that flash messages inform the user whenever they complete an action such as adding a houseplant. In this case a flash message will appear to say the houseplant record has been successful.  If a user tries to access one of the admin only pages such as manage_categories.html, the user is then redirected to the home page automatically and sees a message such as "You do not have access to categories".
+# Sample flash messages:
 ![Examples of messages that are displayed to user](screenshots/flash-message-examples.png)
 - User generated content
+
 ## Add a selection of avatars for new users to choose for their Houseplantr profile page.
 I added the functionality within the  register function and a list of icons for new users to choose from when they register on the app. The avatar then displays on the user's profile page.
 - List of Avatars on register page:  
