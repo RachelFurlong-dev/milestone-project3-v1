@@ -36,10 +36,13 @@ This is a project to complete the requirements of the Code Institute Diploma in 
 - I want to be able to upload my best houseplant images and information and display them on Houseplantr.
 - I want to be able to edit my houseplant records.
 - I want to delete houseplants I don’t want on my profile.
+- I would like to be able to filter and view my uploaded houseplants collection
 
-### Nice to have:
-- I would like to be able to filter and view my uploaded houseplants collection. 
-- I would like to be able to delete my account.
+### Potential user experience features to be added in the future: 
+- User to be able to delete account.
+- User to be able to change password.
+- User to be able to indicate and upvote my favourite houseplants.
+- User to be provided with an about page to find out more about Houseplantr.
 
 
 # Design:
@@ -70,10 +73,10 @@ All my wireframes have been created in Adobe XD. I am familiar with Adobe progra
 - I have structured a database using [MongoDB](https://www.mongodb.com/), a document-oriented database program to support the Houseplantr app.  
 Based on this information, I then created a database structure called houseplantr_db, within which I created 3 collections: categories, houseplants and users.
 - ![Houseplantr Mongo DB database](screenshots/dbhouseplantr.png)
-The collection 'houseplants' stores the specific fields of information submitted by the user via the Add Houseplant page form on the app when the user is logged in.
+The collection 'houseplants' stores the specific fields of information submitted by the user via the add_houseplant.html page form on the app when the user is logged in.
 - ![Houseplants collection](screenshots/dbhouseplant-records.png)
-The collection 'categories' stores the categories within which the houseplant records are grouped - for example, spiky, succukent, varigated, flowering, traiing and foliage.   
-The admin user can add or delete categories when logged in to the Manage Categories page. 
+The collection 'categories' stores the categories within which the houseplant records are grouped - for example, spiky, succulent, varigated, flowering, traiing and foliage.   
+The admin user can add or delete categories when logged in to the categories.html page. 
 - ![Categories collection](screenshots/dbcategories.png).  
 The collection 'users' stores the username, salted password and chosen avatar of each user who has filled in the [registration page](https://houseplantr-v1.herokuapp.com/register) on the app.
 - ![Users collection](screenshots/dbregistered-users.png)
@@ -88,10 +91,19 @@ The collection 'users' stores the username, salted password and chosen avatar of
 - 
 - Responsive on all device sizes
 # CRUD 
- - Create, Read, Update & Delete records
- - Creating a record & form validation
+I have incorporated features in the Houseplantr App to enable to users to Create, Read, Update & Delete houseplant records. 
+## Create (Add a houseplant record)
+- I created a page called add_houseplant.html and added function in the app.py file called add_houseplant. I then created and styled interface elements to enable users to input text and an image of their chosen houseplant. I used a dropdown list for category selection and a datepicker to ensure the date added was entered into the database in the correct format.
+## Add houseplant user interface:
+![add_houseplant user interface](screenshots/add-houseplant_layout.png)
+## Input fields features:
+![category drop-down list](screenshots/drop-down-list.png)
+![date selection via date-picker](screenshots/calendar.png)
+Specific minimum and maximum entry lengths were applied to each field.
+## add_houseplant function:
+![add_houseplant function](screenshots/add-houseplant-function.png)
 ## User authentication
-- I used Flask together with Werkzeug for security features, specifically "generate_password_hash" and "check_password_hash" for user password security. For additional security, Werkzeug's security features then salted the string with random data to make a password which would be hard to crack. I created a Login template and Registration template each containing a form with relevant input fields and button developed with Materialize. I added a link on each page template incase new users were on the Login page or existing users on the Registration page, to enable user to go to the page they required quickly. 
+- I used Flask together with Werkzeug for security features, specifically "generate_password_hash" and "check_password_hash" for user password security. For additional security, Werkzeug's security features then salted the string with random data to make a password which would be hard to crack. I created a Login template and Registration template each containing a form with relevant input fields and button built using the responsive CSS framework Materialize. I added a link on each page template incase new users were on the Login page or existing users on the Registration page, to enable user to go to the page they required quickly. 
 ![Login Page](screenshots/loginscreenshot.png) 
 ![Registraion page](screenshots/regscreenshot.png)
 ## Search functionality to look up houseplants via a Text Index
@@ -126,7 +138,7 @@ I added the functionality within the  register function and a list of icons for 
 
 ## Frameworks, Libraries & Programs
 - Materialize 1.0.0
-    - Materialize was used to assist with the responsiveness and styling of the website; especially useful are the features for creating forms.
+    - Materialize is a modern responsive CSS framework based on Material Design by Google. Materialize was used to assist with the responsiveness and styling of the website; especially useful in this project  are the features for creating forms.
 - Google Fonts
     - Google Fonts was used - specifically the 'Inter’ web font, which is used for all text within the app
 - Font Awesome

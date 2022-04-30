@@ -110,10 +110,11 @@ def profile(username):
         user = mongo.db.users.find_one({"username": username})
         # grab only the houseplants by this session["user"]
         houseplants = list(mongo.db.houseplants.find({"created_by": username}))
-        return render_template("profile.html", user=user, houseplants=houseplants)
+        return render_template(
+                "profile.html", user=user, houseplants=houseplants)
 
     # take the incorrect user to their own profile
-    return redirect(url_for("profile", username=session["user"]))    
+    return redirect(url_for("profile", username=session["user"]))
 
 
 @app.route("/logout")
@@ -194,7 +195,7 @@ def get_categories():
         return render_template("categories.html", categories=categories)
 
     # user is not admin
-    flash("You do not have access to categories - why not add a houseplant instead?")
+    flash("You do not have access to categories - add a houseplant instead")
     return redirect(url_for("get_houseplants"))
 
 
@@ -216,7 +217,7 @@ def add_category():
         return render_template("add_category.html")
 
     # user is not admin
-    flash("You do not have access to add categories - why not add a houseplant instead?")
+    flash("You do not have access to add categories")
     return redirect(url_for("get_houseplants"))
 
 
@@ -231,7 +232,8 @@ def edit_category(category_id):
             submit = {
                 "category_name": request.form.get("category_name")
             }
-            mongo.db.categories.replace_one({"_id": ObjectId(category_id)}, submit)
+            mongo.db.categories.replace_one(
+                {"_id": ObjectId(category_id)}, submit)
             flash("Category Successfully Updated")
             return redirect(url_for("get_categories"))
 
