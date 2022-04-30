@@ -57,6 +57,11 @@ h3 {
     height: 40vh;
 }
 
+.btn-small {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 /*avatar dropdown text*/
 .dropdown-content li a, .dropdown-content li span{
     color:#1b5e20;
