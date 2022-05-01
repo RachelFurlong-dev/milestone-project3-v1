@@ -88,10 +88,8 @@ The collection 'users' stores the username, salted password and chosen avatar of
 - ![Users collection](screenshots/dbregistered-users.png)
 
 # Features:
-
-## Current Features:
-## Responsive 
-- Responsive on all device sizes. 
+## Responsive layouts
+- The app is responsive on all device sizes. 
 ![Responsive Mockup](screenshots/mockups.png). 
 ## Navigation:
 I created a menu to help enable the user to navigate the app. The menu is responsive and changes to a user-friendly side panel with dropdown functionality on mobile. The menu page access changes depending on whether they are logged in. A logged in user has additional pages they can access enabling them to add a houseplant record. Admins have access via the menu to an additional Manage Categories page featuring a dashboard to add, delet and update categories.
@@ -107,6 +105,24 @@ I created a menu to help enable the user to navigate the app. The menu is respon
 ![Navigation logged in admin mobile](screenshots/nav-logged-in-admin-mobile-view.png)
 ### Logged in admin navigation menu desktop
 ![Navigation logged in admin desktop](screenshots/nav-logged-in-admin-desktop-view.png)
+# UX features:
+## Search functionality to look up houseplants via a Text Index
+- I created a Text Index using the Python interpreter in the command-line. The Index was created on the houseplants collection. The index contains a list of tuples which represent the fields in the houseplant collection for the user to search. I created and styled an input field using the framework Materialize to allow the user to search the app using the Text Index easily. I added a reset option to clear the previous search, so the user can easily enter another search term.  
+![Search box](screenshots/search-input.png). 
+## Flash messages
+- I created functionality so that flash messages inform the user whenever they complete an action such as adding a houseplant. In this case a flash message will appear to say the houseplant record has been successful.  If a user tries to access one of the admin only pages such as manage_categories.html, the user is then redirected to the home page automatically and sees a message such as "You do not have access to categories".
+# Sample flash messages:
+![Examples of messages that are displayed to user](screenshots/flash-message-examples.png). 
+## Add a selection of avatars for new users to choose for their Houseplantr profile page.
+I added the functionality within the  register function and a list of icons for new users to choose from when they register on the app. The avatar then displays on the user's profile page.
+- List of Avatars on register page:  
+![List of avatars](screenshots/list-of-avatars.png)
+- Example Avatar displayed on profile page:  
+![Profile page avatar](screenshots/user-avatar.png)
+## Ability for users to filter just their own houseplants added to the app
+On the user profile page (profile.html), users can click the My Houseplants button to view a popup modal of just their own houseplants they have added to the app.I added the functionality within the route decorator which checks if the Mongo username field matches that of the input-field for'username' entered on a form at login.  
+![Display own houseplants modal](screenshots/user-own-houseplants-modal.png). 
+![Display only user's houseplants functionality](screenshots/username-profile.png)
 # CRUD 
 I have incorporated features to enable Create, Read, Update & Delete functionallity within the Houseplantr App 
 ## Add a houseplant record
@@ -145,24 +161,6 @@ On testing the app it became apparent that users could access other users accoun
 - I ensured that update and delete houseplant records could only be updated by the user who originally added the record by using an if statement. Incorrect users would be redirected to the home page with a flash message saying you don't have access to edit/update this page. 
 - To ensure users were not able to access admin only pages, such as Manage Categories, I added the decorator @login required as well as an if statement to check if the user was an admin. If not, the user would be redirected to the home page and a flash message would appear to indicate the user does not have access to the categories page. The same defensive programming was applied to the add, edit and delete category functions.
 [@ login required decorator](screenshots/login-required-decorator.png)
-# Additional UX features:
-## Search functionality to look up houseplants via a Text Index
-- I created a Text Index using the Python interpreter in the command-line. The Index was created on the houseplants collection. The index contains a list of tuples which represent the fields in the houseplant collection for the user to search. I created and styled an input field using the framework Materialize to allow the user to search the app using the Text Index easily. I added a reset option to clear the previous search, so the user can easily enter another search term.  
-![Search box](screenshots/search-input.png). 
-## Flash messages
-- I created functionality so that flash messages inform the user whenever they complete an action such as adding a houseplant. In this case a flash message will appear to say the houseplant record has been successful.  If a user tries to access one of the admin only pages such as manage_categories.html, the user is then redirected to the home page automatically and sees a message such as "You do not have access to categories".
-# Sample flash messages:
-![Examples of messages that are displayed to user](screenshots/flash-message-examples.png). 
-## Add a selection of avatars for new users to choose for their Houseplantr profile page.
-I added the functionality within the  register function and a list of icons for new users to choose from when they register on the app. The avatar then displays on the user's profile page.
-- List of Avatars on register page:  
-![List of avatars](screenshots/list-of-avatars.png)
-- Example Avatar displayed on profile page:  
-![Profile page avatar](screenshots/user-avatar.png)
-## Ability for users to filter just their own houseplants added to the app
-On the user profile page (profile.html), users can click the My Houseplants button to view a popup modal of just their own houseplants they have added to the app.I added the functionality within the route decorator which checks if the Mongo username field matches that of the input-field for'username' entered on a form at login.  
-![Display own houseplants modal](screenshots/user-own-houseplants-modal.png). 
-![Display only user's houseplants functionality](screenshots/username-profile.png)
 
 # Technologies Used:
 ## Languages 
@@ -343,8 +341,7 @@ I have created an admin account which has access to categories pages in addition
 Accessible features include:
 - Adding alt tags via the jinga temoplating language to user uploaded images.
 - For linked icons, I used aria labels indicating the link destination.
-- Created responsive layouts which I tested across multiple screen sizes.  
-![http://ami.responsivedesign.is/](http://ami.responsivedesign.is/?url=https%3A%2F%2Fhouseplantr-v1.herokuapp.com%2F). 
+- Created responsive layouts which I tested across multiple screen sizes. 
 - Validated code as follows:
 ## Validating code:
 ### HTML validation:
