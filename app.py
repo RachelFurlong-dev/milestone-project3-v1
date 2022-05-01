@@ -50,55 +50,67 @@ def search():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    if request.method == "POST":
-        # check if username already exists in db
-        existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+    if "user" not in session:
+        # only if there isn't a current session["user"]
+        if request.method == "POST":
+            # check if username already exists in db
+            existing_user = mongo.db.users.find_one(
+                {"username": request.form.get("username").lower()})
 
-        if existing_user:
-            flash("Username already exists")
-            return redirect(url_for("register"))
+            if existing_user:
+                flash("Username already exists")
+                return redirect(url_for("register"))
 
-        register = {
-            "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password")),
-            "avatar": request.form.get("avatar").lower()
-        }
-        mongo.db.users.insert_one(register)
+            register = {
+                "username": request.form.get("username").lower(),
+                "password": generate_password_hash(request.form.get("password")),
+                "avatar": request.form.get("avatar").lower()
+            }
+            mongo.db.users.insert_one(register)
 
-        # put the new user into 'session' cookie
-        session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
-        return redirect(url_for("profile", username=session["user"]))
-    return render_template("register.html")
+            # put the new user into 'session' cookie
+            session["user"] = request.form.get("username").lower()
+            flash("Registration Successful!")
+            return redirect(url_for("profile", username=session["user"]))
+
+        return render_template("register.html")
+
+    # user is already logged-in, direct them to their profile
+    return redirect(url_for("profile", username=session["user"]))    
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    if request.method == "POST":
-        # check if username exists in db
-        existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+    if "user" not in session:
+        # only if there isn't a current session["user"]
+        if request.method == "POST":
+            # check if username exists in db
+            existing_user = mongo.db.users.find_one(
+                {"username": request.form.get("username").lower()})
 
-        if existing_user:
-            # ensure hashed password matches user input
-            if check_password_hash(
-                    existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
-                    return redirect(url_for(
-                            "profile", username=session["user"]))
+            if existing_user:
+                # ensure hashed password matches user input
+                if check_password_hash(
+                        existing_user["password"], request.form.get("password")):
+                            session["user"] = request.form.get("username").lower()
+                            flash("Welcome, {}".format(
+                                request.form.get("username")))
+                            return redirect(url_for(
+                                "profile", username=session["user"]))
+                else:
+                    # invalid password match
+                    flash("Incorrect Username and/or Password")
+                    return redirect(url_for("login"))
+
             else:
-                # invalid password match
+                # username doesn't exist
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
 
-        else:
-            # username doesn't exist
-            flash("Incorrect Username and/or Password")
-            return redirect(url_for("login"))
+        return render_template("login.html")
 
-    return render_template("login.html")
+    # user is already logged-in, direct them to their profile
+    return redirect(url_for("profile", username=session["user"]))
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
@@ -153,35 +165,49 @@ def add_houseplant():
 @app.route("/edit_houseplant/<houseplant_id>", methods=["GET", "POST"])
 @login_required
 def edit_houseplant(houseplant_id):
-    if request.method == "POST":
-        submit = {
-            "category_name": request.form.get("category_name"),
-            "horticultural_name": request.form.get("horticultural_name"),
-            "common_name": request.form.get("common_name"),
-            "image_url": request.form.get("image_url"),
-            "description": request.form.get("description"),
-            "houseplant_care": request.form.get("houseplant_care"),
-            "date": request.form.get("date"),
-            "created_by": session["user"]
-        }
-        mongo.db.houseplants.replace_one(
-                            {"_id": ObjectId(houseplant_id)}, submit)
-        flash("Houseplant Successfully Updated")
+    # find the houseplant
+    houseplant = mongo.db.houseplants.find_one({"_id": ObjectId(houseplant_id)})
+    if session["user"].lower() == houseplant["created_by"].lower():
+        # the session["user"] must be the user who created this houseplant
+        if request.method == "POST":
+            submit = {
+                "category_name": request.form.get("category_name"),
+                "horticultural_name": request.form.get("horticultural_name"),
+                "common_name": request.form.get("common_name"),
+                "image_url": request.form.get("image_url"),
+                "description": request.form.get("description"),
+                "houseplant_care": request.form.get("houseplant_care"),
+                "date": request.form.get("date"),
+                "created_by": session["user"]
+            }
+            mongo.db.houseplants.replace_one(
+                                {"_id": ObjectId(houseplant_id)}, submit)
+            flash("Houseplant Successfully Updated")
 
-    houseplant = mongo.db.houseplants.find_one(
-                        {"_id": ObjectId(houseplant_id)})
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template(
-                        "edit_houseplant.html", houseplant=houseplant,
-                        categories=categories)
+        categories = mongo.db.categories.find().sort("category_name", 1)
+        return render_template(
+                            "edit_houseplant.html", houseplant=houseplant,
+                            categories=categories)
+
+    # not the correct user to edit this houseplant
+    flash("You don't have access to edit this houseplant")
+    return redirect(url_for("get_houseplants"))                        
 
 
 # function to delete houseplant record from database
 @app.route("/delete_houseplant/<houseplant_id>")
 @login_required
 def delete_houseplant(houseplant_id):
-    mongo.db.houseplants.delete_one({"_id": ObjectId(houseplant_id)})
-    flash("Houseplant Successfully Deleted")
+    # find the houseplant
+    houseplant = mongo.db.houseplants.find_one({"_id": ObjectId(houseplant_id)})
+    if session["user"].lower() == houseplant["created_by"].lower():
+        # the session["user"] must be the user who created this houseplant
+        mongo.db.houseplants.delete_one({"_id": ObjectId(houseplant_id)})
+        flash("Houseplant Successfully Deleted")
+        return redirect(url_for("get_houseplants"))
+
+    # not the correct user to delete this houseplant
+    flash("You don't have access to delete this houseplant")
     return redirect(url_for("get_houseplants"))
 
 

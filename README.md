@@ -43,7 +43,7 @@ This is a project to complete the requirements of the Code Institute Diploma in 
 - User to be able to change password.
 - User to be able to indicate and upvote favourite houseplants.
 - User to be provided with an about page to find out more about Houseplantr.
-- Design a 404 page to redirect users to the home page if they enter a houseplantr url incorrectly. 
+- Design a 404 page to redirect users to the home page (if they enter a houseplantr url incorrectly). 
 
 
 # Design:
@@ -136,7 +136,12 @@ The user cand delete a record by clicking a delete button for the specific categ
 ![Login Page](screenshots/loginscreenshot.png) 
 ![Registraion page](screenshots/regscreenshot.png)
 # Defensive programming
-On testing the app it became apparent that users could access other users accounts, if they were able to access the url to another users page. It was therefore necessary to find a way of denying acess to user pages to other users who were not logged in. To do this I added a decorator which wraps and replaces another function. I used functools.wraps() to handle this. The decorator was then applied within the route() decorator (@login_required) on all relevant functions for login, logout, adding a houseplant, updating a huoseplant record, deleting a houseplant, adding a category, updating a category and deleting a category.
+On testing the app it became apparent that users could access other users accounts, if they were able to access the url to another users page. It was therefore necessary to find a way of denying acess to user pages to other users who were not logged in. To do this I added a decorator which wraps and replaces another function. I used functools.wraps() to handle this.
+- To ensure user profiles were not accessible to logged out users or incorrect users, I used the decorator @login required and a redirect to return the incorrect user to their profile page.
+- To ensure the register, login, logged out,add houseplant,edit houseplant, delete houseplant pages were not accessible to logged in users, I used an if statement where, if a user is already logged in, if they tried to access the these pages, they would be redirected to their profile page.
+- I ensured users must be logged in to add a houseplant record by adding the decorator @login required.
+- I ensured that update and delete houseplant records could only be updated by the user who originally added the record by using an if statement. Incorrect users would be redirected to the home page with a flash message saying you don't have access to edit/update this page. 
+- To ensure users were not able to access admin only pages, such as Manage Categories, I added the decorator @login required as well as an if statement to check if the user was an admin. If not, the user would be redirected to the home page and a flash message would appear to indicate the user does not have access to the categories page. The same defensive programming was applied to the add, edit and delete category functions.
 [@ login required decorator](screenshots/login-required-decorator.png)
 # Additional UX features:
 ## Search functionality to look up houseplants via a Text Index
