@@ -63,7 +63,8 @@ def register():
 
             register = {
                 "username": request.form.get("username").lower(),
-                "password": generate_password_hash(request.form.get("password")),
+                "password": generate_password_hash(
+                    request.form.get("password")),
                 "avatar": request.form.get("avatar").lower()
             }
             mongo.db.users.insert_one(register)
@@ -76,7 +77,7 @@ def register():
         return render_template("register.html")
 
     # user is already logged-in, direct them to their profile
-    return redirect(url_for("profile", username=session["user"]))    
+    return redirect(url_for("profile", username=session["user"]))
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -91,8 +92,10 @@ def login():
             if existing_user:
                 # ensure hashed password matches user input
                 if check_password_hash(
-                        existing_user["password"], request.form.get("password")):
-                            session["user"] = request.form.get("username").lower()
+                        existing_user["password"], request.form.get(
+                            "password")):
+                            session["user"] = request.form.get(
+                                "username").lower()
                             flash("Welcome, {}".format(
                                 request.form.get("username")))
                             return redirect(url_for(
@@ -166,7 +169,8 @@ def add_houseplant():
 @login_required
 def edit_houseplant(houseplant_id):
     # find the houseplant
-    houseplant = mongo.db.houseplants.find_one({"_id": ObjectId(houseplant_id)})
+    houseplant = mongo.db.houseplants.find_one(
+        {"_id": ObjectId(houseplant_id)})
     if session["user"].lower() == houseplant["created_by"].lower():
         # the session["user"] must be the user who created this houseplant
         if request.method == "POST":
@@ -191,7 +195,7 @@ def edit_houseplant(houseplant_id):
 
     # not the correct user to edit this houseplant
     flash("You don't have access to edit this houseplant")
-    return redirect(url_for("get_houseplants"))                        
+    return redirect(url_for("get_houseplants"))
 
 
 # function to delete houseplant record from database
@@ -199,7 +203,8 @@ def edit_houseplant(houseplant_id):
 @login_required
 def delete_houseplant(houseplant_id):
     # find the houseplant
-    houseplant = mongo.db.houseplants.find_one({"_id": ObjectId(houseplant_id)})
+    houseplant = mongo.db.houseplants.find_one(
+        {"_id": ObjectId(houseplant_id)})
     if session["user"].lower() == houseplant["created_by"].lower():
         # the session["user"] must be the user who created this houseplant
         mongo.db.houseplants.delete_one({"_id": ObjectId(houseplant_id)})

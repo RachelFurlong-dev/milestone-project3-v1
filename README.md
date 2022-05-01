@@ -29,6 +29,7 @@ This is a project to complete the requirements of the Code Institute Diploma in 
 - I want to be able to find out how users can interact with the app.
 - I want to be able to easily register as a user.
 - I want to be able to log out of my account.
+- Be able to view app on different screen sizes.
 
 ### As a returning visitor:
 - I want to read about a wide range of houseplants and how to care for them on the app.
@@ -336,30 +337,30 @@ I added a number of fake records to test the add houseplant form functioned corr
 - The App was viewed on a variety of devices such as Desktop, Laptop, iPad Air, iPhone SE, iPhone12 Pro , Surface Duo and Samsung Galaxy.
 - Testing was done to ensure that all pages were linking correctly.
 # Validators:
-### HTML:
-
+### HTML validation:
+I tested the app with the [W3C Html checker](https://validator.w3.org/) and it indicated the following warnings:
+- Warning: Section lacks heading. Consider using h2-h6 elements to add identifying headings to all sections, or else use a div element instead for any cases where no heading is needed. The reason for this is that the html (div and h4 headings) were hidden from the validator due to the jinga templating language.  
+![Html section waring](screenshots/html-section-warning1.png). 
+- A warning was issued about the vimeo and YouTube aria labels. I was able to update the YouTube label so it was accepted (YouTube link). However, all attempts to add an aria label to the Vimeo link caused a warning to show. I therefore added the equivalent label I used for YouTube as the links have much the same function and should be clear to screen readers.  
+![Vimeo aria label warning](screenshots/html-aria-label-warning.png)
 ### W3C Markup Validator 
 Apart from the Jinga templating language that the validator is not able to read, the code is validating with no errors shown
-### CSS
-### W3C CSS Validator 
-Write this up shortly
-### Javascript
-### Jshint
-Write this up shortly
-### Python
-### PEP8 Online
-All .py files are PEP8 compliant.
-
+### CSS validation
+I tested style.css file with the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) and no error was found.  
+![CSS validation](screenshots/w3-css-validation.png)
+### Javascript validation
+The script.js was tested by [Jshint online checker](https://jshint.com/) Two warnings were issued about the let variable keyword being available in ES6 version since 2015. 
+![Javascript warning](screenshots/jshint-warning.png)
+### Python validation
+I tested app.py file with [PEP8 Online Check](http://pep8online.com/) and the file is PEP8 compliant.  
+![PEP8 compliant](screenshots/pep8-online-validation.png)
 # Credits:
-
 ## Media:
 - Demo images [Unsplash](https://unsplash.com/)
 - Avatars [Flaticon garedening stickers](https://www.flaticon.com/search?word=plants&type=sticker)
-
 ## Code
 - Copyright Date Script [Tim Nelson](https://github.com/TravelTimN)
 - Defensive programming [Tim Nelson](https://github.com/TravelTimN)
-
 # Bugfixes:
 ## Editing a record/category method
 I used the update() method in the original Code Institute video within the edit function, but this didn’t work due to Pymongo having been updated by the developers & it caused an error. I then tried the update_one method as outlined in [W3 schools](https://www.w3schools.com/python/python_mongodb_update.asp)  
