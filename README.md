@@ -46,6 +46,10 @@ This is a project to complete the requirements of the Code Institute Diploma in 
 - User to be provided with an about page to find out more about Houseplantr.
 - Design a 404 page to redirect users to the home page (if they enter a houseplantr url incorrectly). 
 
+## Promotional Opportunity
+- Build upon plant care on the card reveal section, to promote a Houseplantr podcast on YouTube.
+- Add links from the app to Houseplantr's social media sites including YouTube and Vimeo.
+
 
 # Design:
 ## Colour scheme
@@ -87,11 +91,8 @@ The collection 'users' stores the username, salted password and chosen avatar of
 
 ## Current Features:
 ## Responsive 
-- I tested the app on [http://ami.responsivedesign.is/](http://ami.responsivedesign.is/?url=https%3A%2F%2Fhouseplantr-v1.herokuapp.com%2F). 
+- Responsive on all device sizes. 
 ![Responsive Mockup](screenshots/mockups.png). 
-### I tested the app on the following devices:
-- 
-- Responsive on all device sizes
 ## Navigation:
 I created a menu to help enable the user to navigate the app. The menu is responsive and changes to a user-friendly side panel with dropdown functionality on mobile. The menu page access changes depending on whether they are logged in. A logged in user has additional pages they can access enabling them to add a houseplant record. Admins have access via the menu to an additional Manage Categories page featuring a dashboard to add, delet and update categories.
 ### Logged out navigation menu mobile
@@ -162,14 +163,6 @@ I added the functionality within the  register function and a list of icons for 
 On the user profile page (profile.html), users can click the My Houseplants button to view a popup modal of just their own houseplants they have added to the app.I added the functionality within the route decorator which checks if the Mongo username field matches that of the input-field for'username' entered on a form at login.  
 ![Display own houseplants modal](screenshots/user-own-houseplants-modal.png). 
 ![Display only user's houseplants functionality](screenshots/username-profile.png)
-
-## Potential Features
-- Add an about page to enable user to find out more about the people behind Houseplantr app.
-- Add a contact form
-
-## Promotional Opportunity
-- Build upon plant care on the card reveal section, to promote a Houseplantr podcast on YouTube.
-- Add links from the app to Houseplantr's social media sites including YouTube and Vimeo.
 
 # Technologies Used:
 ## Languages 
@@ -331,20 +324,35 @@ To connect Flask to MongoDB complete the following:
 ## Creating an account
 I have created an admin account which has access to categories pages in addition to the main account pages, a personal account and 6 test accounts in order to test the functionality of the website. 
 ## Add, Edit & delete a houseplant record
-I added a number of fake records to test the add houseplant form functioned correctly, I edited records and then finally deleted them. 
+- I added a number of fake records to test the add houseplant form functioned correctly, I edited records and then finally deleted them. 
+- I tested to see if I could access pages that should be inaccessible and whether I could access other users accounts when I was logged in as another user. All functioned correctly, displaying the correct flash messages.
 ## Further Testing
-- The App was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
-- The App was viewed on a variety of devices such as Desktop, Laptop, iPad Air, iPhone SE, iPhone12 Pro , Surface Duo and Samsung Galaxy.
-- Testing was done to ensure that all pages were linking correctly.
-# Validators:
+- The desktop App was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers, to check layouts and functionality on all pages. The homepage view is seen below:  
+![Desktop browser views](screenshots/desktop-browser-views.png)
+- The App was tested on a variety of devices including
+- Mobile screen - Iphone 12 pro:  
+![iphone12 pro layouts](screenshots/testing-iphone12-pro.png). 
+- Tablet layout - iPad mini   
+![iPad mini layouts](screenshots/testing-ipad-mini.png)
+- Medium screen - Surface Pro7:
+![Surface Pro7 layouts](screenshots/testing-surface-pro7.png)
+- Large screen - iMac 27"   
+![Imac 27" layouts](screenshots/testing-imac-27.png) 
+- Testing was done to ensure that all pages were linking correctly, and that external links opened in a new tab. I tested adding editing and deleting a houseplant record on diferent screen sizes and the app functioned correctly.
+# Accessibility
+Accessible features include:
+- Adding alt tags via the jinga temoplating language to user uploaded images.
+- For linked icons, I used aria labels indicating the link destination.
+- Created responsive layouts which I tested across multiple screen sizes.  
+![http://ami.responsivedesign.is/](http://ami.responsivedesign.is/?url=https%3A%2F%2Fhouseplantr-v1.herokuapp.com%2F). 
+- Validated code as follows:
+## Validating code:
 ### HTML validation:
-I tested the app with the [W3C Html checker](https://validator.w3.org/) and it indicated the following warnings:
+I tested the app with the [W3C HTML checker](https://validator.w3.org/) and it indicated the following warnings:
 - Warning: Section lacks heading. Consider using h2-h6 elements to add identifying headings to all sections, or else use a div element instead for any cases where no heading is needed. The reason for this is that the html (div and h4 headings) were hidden from the validator due to the jinga templating language.  
-![Html section waring](screenshots/html-section-warning1.png). 
+![HTML section warning](screenshots/html-section-warning1.png). 
 - A warning was issued about the vimeo and YouTube aria labels. I was able to update the YouTube label so it was accepted (YouTube link). However, all attempts to add an aria label to the Vimeo link caused a warning to show. I therefore added the equivalent label I used for YouTube as the links have much the same function and should be clear to screen readers.  
 ![Vimeo aria label warning](screenshots/html-aria-label-warning.png)
-### W3C Markup Validator 
-Apart from the Jinga templating language that the validator is not able to read, the code is validating with no errors shown
 ### CSS validation
 I tested style.css file with the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) and no error was found.  
 ![CSS validation](screenshots/w3-css-validation.png)
