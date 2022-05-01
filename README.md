@@ -43,6 +43,7 @@ This is a project to complete the requirements of the Code Institute Diploma in 
 - User to be able to change password.
 - User to be able to indicate and upvote favourite houseplants.
 - User to be provided with an about page to find out more about Houseplantr.
+- Design a 404 page to redirect users to the home page if they enter a houseplantr url incorrectly. 
 
 
 # Design:
