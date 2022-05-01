@@ -196,8 +196,129 @@ On the user profile page (profile.html), users can click the My Houseplants butt
     - MongoDB was used to store the data required for the project. It is a document-oriented NoSQL database used for high volume data storage.
 
 # Deployment 
+## Set up the database
+I set up an account with the document based database [MongoDB Atlas](https://www.mongodb.com/)
+### Set up MongoDB 
+I created
+- a cluster on which a database could run.
+- added a new database user with username and password.
+- set privileges as Read and Write to the database.
+- whitelisted IP address and selected allow Access From Anywhere.
+- Once the cluster was fully provisioned, I created a new database called houseplantr_db to store the data that will be used with the app.
+### Set up collections:
+I created three collections within the database: Categories, Houseplants and Users.
+In the Categories collection, I inserted a document and created a key value pair: category_name:Flowering. At this stage only one houseplant category was needed just to get the app set up. The rest of the categories were added later.
+### Add document:
+In the houseplants collection I set up a document. The first key was category_name:“Flowering” as before. Then add additional fields were added: horticultural name, common name, description, date, created_by, image_url, and houseplant_care. The relevant houseplant data was added as key value pairs as in the screenshot below. Again, only one houseplant document was needed just to get the app set up, and new documents would be created within the app.  
+![Key Value Pairs within a document](screenshots/example-key-value-pairs.png)
+
+### Create the Flask Application
+To create the Flask application I did the following:
+- in the Terminal typed; 'pip3 install Flask' so that Flask functionality was ready to be imported.
+- created the app.py file which would run the application.
+- created an env.py in which to store sensitive data.
+- created a gitignore file which was set up to ignore env.py as well as the the '__pycache__/' directory.so that data that must be kept secure such as secret keys would not be saved to GitHub.
+- imported os to set up default environment variables in the env.py file, as in the screenshot below:  
+![Environment Variables](screenshots/environment-variables.png)
+- in app.py import Flask 
+- imported the env package so Heroku would be able to find the environment variables as they would not be pushed to GitHub.
+- created an instance of Flask, stored in a variable called 'app'.
+- told the app how and where to run the application as in the screenshot below:  
+![Run application](screenshots/app-run.png)
+- the final parameter was set to debug=True, during development, so I could see any actual errors that may appear, instead of a generic server warning. I changed this back to debug=False prior to final deployment.
+- set up a test function to check the app was working correctly in advance of connecting the app to MongoDB.
+
+### Deploy application to Heroku:
+To deploy the application to Heroku I did the following:
+- created a requirements.txt file where the dependencies required to run the app would be stored.
+- created a Procfile where Heroku could get the information needed to run the app.
+- created a new app called Houseplantr-v1 in [Heroku](https://www.heroku.com/).
+- connected to GitHub within the app using the GitHub connect option.
+- selected settings>Reveal Config Vars, added in the variables from the env.py file – left the MONGO_URI field contents empty for now.
+- pushed the two new files (requirements.txt and Procfile) to the repository.
+- selected Deploy tab in Heroku, then Enable Automatic Deploys and Deploy Branch. This enabled Heroku to receive the code from GitHub and build the app using the required packages.
+
+### Connect Flask to MongoDB:
+To connect Flask to MongoDB I did the following:
+- set up a working connection between your application and your database. 
+- installed a third party library called flask-pymongo.
+- installed 'dnspython' in order to use the Mongo SRV connection string.
+- updated the requirements.txt file to allow Heroku to detect the new requirements for running the app.
+- added the additional imports at the top of app.py to reflect the new installations.("from flask_pymongo import PyMongo").
+- added "from bson.objectid import ObjectId"(because MongoDB stores its data in a JSON-like format called BSON).
+- additional configuration was added in app.py to connect to MongoDb as in the screenshot below:  
+![MongoDB congiuration app.py](screenshots/mdb-configuration-req.png)
+- from MongoDB cluster copied the MONGO_URI connection string, updating database name and password to replace the angle brackets placeholder content.
+- copied the completed string to env.py file to complete the MONGO_URI environment variable.
+- copied the completed string to the MONGO_URI variable in Heroku Config Vars.
+- tested the app to see if it was connecting with the database successfully.  
+
+### Display data from MongoDB on template page:
+To test data from MongoDB would display on a template page within the app I did the following:
+- set up an instance of PyMongo, and added the app into that using a constructor method "mongo = PyMongo(app)".
+- tested to check the app was connecting with MongoDB by creating a function with a decorator that includes a route to that app. 
+- created a template houseplants.html and generated data from the houseplants collection to the template. 
+- ran the app to check the correct data was visible on the houseplants.html file which indicated that the app had connected with MongoDB successfully.
+Then, with MongoDB and Heroku set up correctly with the app, I was able to set up the templates, design the interface, create, edit and delete records to the app. Once testing was complete, I changed debug=True back to debug=False prior to final deployment.
 
 # How to deploy Houseplantr App
+Clone the houseplantr-v1 repository as follows:
+- on GitHub.com, navigate to the main page of the repository.
+- above the list of files, click Code.
+- clone the repository using HTTPS, or use an SSH key, or by using GitHub CLI.
+- open Terminal - change the current working directory to the location where you want the cloned directory.
+- type git clone, and then paste the URL you copied earlier.
+- press Enter to create your local clone.
+- more information about cloning is available [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repositor) 
+## Set up the database
+Set up an account with the document based database [MongoDB Atlas](https://www.mongodb.com/)
+### Set up MongoDB 
+set up the following:
+- a cluster on which a database can run.
+- add a new database user with username and password.
+- set privileges as Read and Write to the database.
+- whiteliste IP address and select allow Access From Anywhere.
+- Once the cluster is fully provisioned, create a new database called houseplantr_db to store the data that will be used with the app.
+### Set up collections:
+Create three collections within the database: Categories, Houseplants and Users.
+In the Categories collection, Insert a Document and create a key value pair: category_name:Flowering. At this stage only one houseplant category is needed just to get the app set up. The rest of the categories will be added later.
+### Add document:
+In the houseplants collection set up a document: The first key is category_name:“Flowering” as before. Then add additional fields: horticultural name, common name, description, date, created_by, image_url, and houseplant_care. The relevant houseplant data should be added as key value pairs as in the screenshot below. Again, only one houseplant document is needed at this stage to get the app set up, and new documents will be created within the app.  
+![Key Value Pairs within a document](screenshots/example-key-value-pairs.png)
+### Create the Flask Application
+To create the Flask application:
+- in the Terminal type; 'pip3 install Flask' so that Flask functionality is ready to be imported.
+- create an env.py in which to store sensitive data.
+- create a gitignore file which was set up to ignore env.py as well as the the '__pycache__/' directory.so that data that must be kept secure such as secret keys will not be saved to GitHub.
+- import os to set up default environment variables in the env.py file, as in the screenshot below:  
+![Environment Variables](screenshots/environment-variables.png)
+- update the env package in app.py so Heroku will be able to find the corrrect environment variables as they are not be pushed to GitHub.
+- set the final parameter to debug=True during development, in order to detect errors that may appear, instead of a generic server warning. Change this back to debug=False prior to final deployment.
+- set up a test function to check the app was working correctly in advance of connecting the app to MongoDB.
+### Deploy application to Heroku:
+To deploy the application to Heroku:
+- create a requirements.txt file where the dependencies required to run the app will be stored.
+- create a Procfile where Heroku could get the information needed to run the app.
+- create a new app called Houseplantr-v1 in [Heroku](https://www.heroku.com/).
+- connect to GitHub within the app using the GitHub connect option.
+- select settings>Reveal Config Vars, added in the variables from the env.py file – leave the MONGO_URI field contents empty for now.
+- push the two new files (requirements.txt and Procfile) to the repository.
+- select Deploy tab in Heroku, then Enable Automatic Deploys and Deploy Branch. This enables Heroku to receive the code from GitHub and build the app using the required packages.
+### Connect Flask to MongoDB:
+To connect Flask to MongoDB complete the following:
+- set up a working connection between your application and your database. 
+- install a third party library called flask-pymongo.
+- install 'dnspython' in order to use the Mongo SRV connection string.
+- update the requirements.txt file to allow Heroku to detect the new requirements for running the app.
+- add the additional imports at the top of app.py to reflect the new installations.("from flask_pymongo import PyMongo").
+- add "from bson.objectid import ObjectId"(because MongoDB stores its data in a JSON-like format called BSON).
+- update configuration in app.py to connect to MongoDb. 
+- from MongoDB cluster copy the MONGO_URI connection string, updating database name and password to replace the angle brackets placeholder content.
+- copy the completed string to env.py file to complete the MONGO_URI environment variable.
+- copy the completed string to the MONGO_URI variable in Heroku Config Vars.
+- test the app to see if it is connecting with the database successfully.  
+### Display data from MongoDB on template page:
+- run the app to check the correct data from the houseplants collection is visible on the houseplants.html file. This indicates that the app has connected with MongoDB successfully.
 
 # Testing:    
 ## Creating an account
