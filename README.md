@@ -3,52 +3,89 @@
 [Houseplantr live site](https://houseplantr-v1.herokuapp.com/)
 
 ![Houseplantr App](screenshots/mockups.png)
-Want to share your houseplant love? Join our community on Houseplantr and share your knowledge and Houseplant recommendations with others. Create your free account, and upload and share your favourite houseplants and houseplant tips with the community.
+Want to share your houseplant love? Join our community on Houseplantr and share your knowledge and Houseplant recommendations with others. Display your own online indoor garden with a free account, and upload and share your favourite houseplants and houseplant tips with the community.
 
 # About Houseplantr
+With the rise of social media platforms such as Instagram there has been a profound change in the tastes and habits of even established gardeners. Online stardom for Houseplants has meant a growth in the popularity of appealing varieties, including plants that haven’t been in demand since the 1970s. 
 
-With the rise of social media platforms such as Instagram there has been a profound change in the tastes and habits of even established gardeners. Online stardom for Houseplants has meant a growth in the popularity of appealing varieties, including plants that haven’t been in demand since the 1970s. Houseplants have become more appealing – especially amongst audiences who may not have their own garden. 
+## Audiences
+Houseplant lovers have already demonstrated their enthusiasm for online platforms such as Instagram and YouTube, where they can share their favourite houseplants and get new ideas. There is also a demand for information on how to care for and grow new houseplants from cuttings. Houseplants have become more appealing to online audiences – especially amongst people who may not have their own garden. 
 
-Houseplant lovers have already demonstrated their enthusiasm for online platforms where they can share their favourite houseplants and get new ideas. There is also a demand for information on how to care for and grow new plants from cuttings. 
-
-My app Houseplantr has been developed specifically for people who love Houseplants and who want to share images of their best houseplants and tips for houseplant care with others. It is designed to allow users to create a profile and display images of their Houseplants with a description and tips on caring for the houseplant. The app would contribute to developing and build a cross platform community of people who love houseplants
-
-I have created the functionality within the app to allow users to create, locate, display, edit and delete houseplant records (CRUD functionality). I have also added links to a potential podcast development on YouTube with associated social media channels where houseplant enthusiasts can share knowledge and learn more about houseplants. 
-
-A future ecommerce opportunity could be a marketplace where users can buy and sell cuttings, and develop a seed library.
-
-This is a project to complete the requirements of the Code Institute Diploma in Web Development Milestone Project 3 
-
-
-# User Experience:
 ## User stories
+My app Houseplantr has been developed specifically for people who love Houseplants and who want to share images of their best houseplants and tips for houseplant care with others. It is designed to allow users to easily create a profile and display images of their Houseplants together with a description and tips on caring for the houseplant. The app would contribute to developing a cross platform community of people who love houseplants.
 
-### As a first time visitor:
-- I want to easily understand the main purpose of the site on all devices including mobile, ipad and desktop.
-- I want to be able to easily navigate throughout the site, find out more about the content of the site and build trust in the brand.
-- I want to be able to find out how users can interact with the app.
-- I want to be able to easily register as a user.
+# User experience goals
+
+## As a first time visitor:
+- I want to easily understand the main purpose Houseplantr, its primary content.
+- I want to be able to easily navigate throughout the site, and build trust in the brand.
+- I want to learn more about how to grow and care for new houseplants.
+- I want to share images of my best houseplants.
+- I want to share tips on how to look after houseplants.
+- I want to be able to easily register as a user and join the community.
 - I want to be able to log out of my account.
-- Be able to view app on different screen sizes.
+- Be able to view the app on different devices including mobile and desktop.
 
-### As a returning visitor:
+
+## As a returning visitor:
 - I want to read about a wide range of houseplants and how to care for them on the app.
 - I want to be able to search the database to view specific houseplants.
-- I want to be able to upload my best houseplant images and information and display them on Houseplantr.
+- I want to be able to join Housplantr and create my own account
+- I want to be able to add a record and describe my houseplant and how to care for it.
+- I want to be able to display an image of my houseplant. 
 - I want to be able to edit my houseplant records.
 - I want to delete houseplants I don’t want on my profile.
-- I would like to be able to filter and view my uploaded houseplants collection
-
-### Potential user experience features to be added in the future: 
-- User to be able to delete account.
-- User to be able to change password.
-- User to be able to indicate and upvote favourite houseplants.
-- User to be provided with an about page to find out more about Houseplantr.
-- Design a 404 page to redirect users to the home page (if they enter a houseplantr url incorrectly). 
+- I want to be able to filter and view my uploaded houseplants collection.
 
 ## Promotional Opportunity
-- Build upon plant care on the card reveal section, to promote a Houseplantr podcast on YouTube.
-- Add links from the app to Houseplantr's social media sites including YouTube and Vimeo.
+- Build upon plant care section on the card reveal, to promote a Houseplantr podcast on YouTube and Vimeo by devveloping own branded channel.
+- A future ecommerce opportunity could be a marketplace where users can buy and sell cuttings, and develop a seed library.
+
+# How app meets pre-identified user needs:
+
+## Meeting first time visitor goals:
+- To easily understand the main purpose Houseplantr, its primary content:
+    - When the user arrives on the home page they can immediately see the main content of the ap pwhich is houseplants. This is evident with there being an attractive grid layout of houseplants which are appealing to houseplant enthusiasts as well as a descriotuin and a reveal section on each card to inform the user on how to care for the houseplant. The brand name Houseplantr reflects the main purpose of the app. The strapline indicates that a user should ‘join’.
+- To be able to easily navigate throughout the site, and build trust in the brand:
+    - The user can easily navigate through the app via the navigation links at the top of the page which adapt to whether the user is viewing the app on desktop, or mobile. The nav changes when the user is logged in to allow access to user only pages. The app has been tested to ensure that it functions well which is essential to build trust in a website and a brand
+- To learn more about how to grow and care for new houseplants:
+    - The user can click on individual cards either on the image but ore specifically via a magnifying icon which indicates there is more to see. On the reveal of the card is more information about how to care for the houseplant, and links to houseplant care on YouTube and Vimeo. 
+- To share images of my best houseplants:
+    - Logged in users are able to add a url of their houseplant to display o the app
+- To share tips on how to look after houseplants:
+    - Logged in users can fill in the Houseplant care field with relevant tips
+- To be able to easily register as a user and join the community:
+    - New visitors can access the register page via the main menu and fill in a username and password to use on the app, as well as select their own avatar from a dropdown list. They are then taken to a profile page which displays their icon as well as a direct link to add a houseplant.
+- To be able to log out of my account:
+    - When the user is logged, a link is visible in the navigation bar to allow the user to log out.
+- To view the app on different devices including mobile and desktop:
+    - The layouts on the app have all been designed to be responsive, making use of the classes in Materialize framework.
+
+## Meeting returning visitor goals:
+- To read about a wide range of houseplants and how to care for them on the app:
+    - As more and more users join the app and take an interest, there will be regularly updated content, providing the users with fresh content to read and a wider selection of houspelants to read about.
+- Too be able to search the database to view specific houseplants:
+    - Users can search the houseplants collection index easily via the input field at the top of the home page. If a houseplant matched the search term it will be displayed.
+- To be able to join Housplantr and create my own account.
+    - I have designed a user friendly registration page with a form where new users can easily sign up with a username and password and choose their avatar to use on their profile.
+- To be able to add a record and describe my houseplant and how to care for it:
+    - I have designed an ‘Add Houseplant form which enables logged in user to fill in a series of required fields to describe their houseplant and how to care for it., add the date. The user who added the houseplant will be displayed on the houseplant record.
+- To be able to display an image of my houseplant: 
+    - The logged in user can add an image via a URL on the add houseplant page. The page is accessible via the navigation bar and the profile page when a user is logged in.
+- Too be able to edit my houseplant records:
+    - I have provided functionality for logged in users to be able to update their own houseplant records (but not those of other users) This is accessed via the individual cards which have an edit button which takes the user to the Edit Houseplant page, where all fields can be updated
+- To delete houseplants I don’t want on my profile:
+    - I have provided functionality for logged in users to be able to delete their own houseplant records (but not those of other users) This is accessed via the individual cards which have delete button which immediately deletes the record from the app and the database.
+
+## Potential user experience features to be added in the future: 
+- Add additional buttons under the strapline to emphasise that users can join, rather than looking for this functionality in the navigation.
+- User to be able to delete their account.
+- User to be able to change their password.
+- Build in an extra step into deleting a record - a warning popup asking if the user really wants to delete a record before going ahead.
+- User to be able to indicate and upvote favourite houseplants.
+- Allow users to upload a houseplant image rather than only a URL.
+- User to be provided with an about page to find out more about Houseplantr.
+- Design a 404 page to redirect users to the home page.
 
 
 # Design:
@@ -123,6 +160,7 @@ I added the functionality within the  register function and a list of icons for 
 On the user profile page (profile.html), users can click the My Houseplants button to view a popup modal of just their own houseplants they have added to the app.I added the functionality within the route decorator which checks if the Mongo username field matches that of the input-field for'username' entered on a form at login.  
 ![Display own houseplants modal](screenshots/user-own-houseplants-modal.png). 
 ![Display only user's houseplants functionality](screenshots/username-profile.png)
+
 # CRUD 
 I have incorporated features to enable Create, Read, Update & Delete functionallity within the Houseplantr App 
 ## Add a houseplant record
@@ -153,14 +191,6 @@ The user cand delete a record by clicking a delete button for the specific categ
 - I used Flask together with Werkzeug for security features, specifically "generate_password_hash" and "check_password_hash" for user password security. For additional security, Werkzeug's security features then salted the string with random data to make a password which would be hard to crack. I created a Login template and Registration template each containing a form with relevant input fields and button built using the responsive CSS framework Materialize. I added a link on each page template incase new users were on the Login page or existing users on the Registration page, to enable user to go to the page they required quickly. 
 ![Login Page](screenshots/loginscreenshot.png) 
 ![Registraion page](screenshots/regscreenshot.png)
-# Defensive programming
-On testing the app it became apparent that users could access other users accounts, if they were able to access the url to another users page. It was therefore necessary to find a way of denying acess to user pages to other users who were not logged in. To do this I added a decorator which wraps and replaces another function. I used functools.wraps() to handle this.
-- To ensure user profiles were not accessible to logged out users or incorrect users, I used the decorator @login required and a redirect to return the incorrect user to their profile page.
-- To ensure the register, login, logged out,add houseplant,edit houseplant, delete houseplant pages were not accessible to logged in users, I used an if statement where, if a user is already logged in, if they tried to access the these pages, they would be redirected to their profile page.
-- I ensured users must be logged in to add a houseplant record by adding the decorator @login required.
-- I ensured that update and delete houseplant records could only be updated by the user who originally added the record by using an if statement. Incorrect users would be redirected to the home page with a flash message saying you don't have access to edit/update this page. 
-- To ensure users were not able to access admin only pages, such as Manage Categories, I added the decorator @login required as well as an if statement to check if the user was an admin. If not, the user would be redirected to the home page and a flash message would appear to indicate the user does not have access to the categories page. The same defensive programming was applied to the add, edit and delete category functions.
-[@ login required decorator](screenshots/login-required-decorator.png)
 
 # Technologies Used:
 ## Languages 
@@ -318,25 +348,6 @@ To connect Flask to MongoDB complete the following:
 ### Display data from MongoDB on template page:
 - run the app to check the correct data from the houseplants collection is visible on the houseplants.html file. This indicates that the app has connected with MongoDB successfully.
 
-# Testing:    
-## Creating an account
-I have created an admin account which has access to categories pages in addition to the main account pages, a personal account and 6 test accounts in order to test the functionality of the website. 
-## Add, Edit & delete a houseplant record
-- I added a number of fake records to test the add houseplant form functioned correctly, I edited records and then finally deleted them. 
-- I tested to see if I could access pages that should be inaccessible and whether I could access other users accounts when I was logged in as another user. All functioned correctly, displaying the correct flash messages.
-## Further Testing
-- The desktop App was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers, to check layouts and functionality on all pages. The homepage view is seen below:  
-![Desktop browser views](screenshots/desktop-browser-views.png)
-- The App was tested on a variety of devices including
-- Mobile screen - Iphone 12 pro:  
-![iphone12 pro layouts](screenshots/testing-iphone12-pro.png). 
-- Tablet layout - iPad mini   
-![iPad mini layouts](screenshots/testing-ipad-mini.png)
-- Medium screen - Surface Pro7:
-![Surface Pro7 layouts](screenshots/testing-surface-pro7.png)
-- Large screen - iMac 27"   
-![Imac 27" layouts](screenshots/testing-imac-27.png) 
-- Testing was done to ensure that all pages were linking correctly, and that external links opened in a new tab. I tested adding editing and deleting a houseplant record on diferent screen sizes and the app functioned correctly.
 # Accessibility
 Accessible features include:
 - Adding alt tags via the jinga temoplating language to user uploaded images.
@@ -360,17 +371,34 @@ The script.js was tested by [Jshint online checker](https://jshint.com/) Two war
 I tested app.py file with [PEP8 Online Check](http://pep8online.com/) and the file is PEP8 compliant.  
 ![PEP8 compliant](screenshots/pep8-online-validation.png)
 # Credits:
-## Media:
-- Demo images [Unsplash](https://unsplash.com/)
-- Avatars [Flaticon garedening stickers](https://www.flaticon.com/search?word=plants&type=sticker)
-## Code
+## Media credits:
+- Demo images [Unsplash](https://unsplash.com/) [Pexels](https://www.pexels.com/) User records each display link to credit author.
+- Avatars [Flaticon gardening stickers](https://www.flaticon.com/search?word=plants&type=sticker) as follows:
+
+- [Cat_Plant](https://www.flaticon.com/free-stickers/cat) Cat stickers created by Stickers - Flaticon
+
+- [Horticulturalist Avatar](https://www.flaticon.com/free-stickers/plant) created by Stickers - Flaticon
+
+- [Monstera](https://www.flaticon.com/free-stickers/nature) Nature stickers created by Stickers - Flaticon
+
+- [Gardening](https://www.flaticon.com/free-stickers/people) People stickers created by Stickers - Flaticon
+
+- [Plant-influencer](https://www.flaticon.com/free-stickers/garden) Garden stickers created by Olesia Kotelevska - Flaticon
+
+- [Cactus](https://www.flaticon.com/free-stickers/cactus) Cactus stickers created by Gohsantosadrive - Flaticon
+
+- [Watering_can](https://www.flaticon.com/free-stickers/nature) Nature stickers created by Stickers - Flaticon
+
+- [Watering plants](https://www.flaticon.com/free-stickers/plants) Plants stickers created by inipagistudio - Flaticon
+
+## Code credits
 - Copyright Date Script [Tim Nelson](https://github.com/TravelTimN)
 - Defensive programming [Tim Nelson](https://github.com/TravelTimN)
-# Bugfixes:
-## Editing a record/category method
+## Bugfixes:
+### Editing a record/category method
 I used the update() method in the original Code Institute video within the edit function, but this didn’t work due to Pymongo having been updated by the developers & it caused an error. I then tried the update_one method as outlined in [W3 schools](https://www.w3schools.com/python/python_mongodb_update.asp)  
 When that didn't work either, I researched online and found a fix from [Stack Overflow](https://stackoverflow.com/questions/30605638/why-does-upsert-a-record-using-update-one-raise-valueerror) where replace_one was recommended and that worked. 
-## Deleting a record/category method 
+### Deleting a record/category method 
 The method remove() did not work when writing code to delete a record or category due to Pymongo being updated by the developers. After reading about this issue on the Code Institute Slack discussion board I discovered that the method remove() was now depreciated in Pymongo 4. The fix was to use the method delete_one instead.
 
 
