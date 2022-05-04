@@ -11,71 +11,65 @@ With the rise of social media platforms such as Instagram there has been a profo
 ## Audiences
 Houseplant lovers have already demonstrated their enthusiasm for online platforms such as Instagram and YouTube, where they can share their favourite houseplants and get new ideas. There is also a demand for information on how to care for and grow new houseplants from cuttings. Houseplants have become more appealing to online audiences – especially amongst people who may not have their own garden. 
 
-## User stories
-My app Houseplantr has been developed specifically for people who love Houseplants and who want to share images of their best houseplants and tips for houseplant care with others. It is designed to allow users to easily create a profile and display images of their Houseplants together with a description and tips on caring for the houseplant. The app would contribute to developing a cross platform community of people who love houseplants.
+##  Houseplant enthusiast goals 
+Houseplantr has been developed specifically for people who love Houseplants and who want to share images of their best houseplants and tips for houseplant care with others. It is designed to allow users to easily create a profile and display images of their Houseplants together with a description and tips on caring for the houseplant. The app would contribute to developing a cross platform community of people who love houseplants. 
+ 
+## Houseplantr business goals 
+Houseplantr, in addition to being a resource for people who love houseplants, is enabling the site owner to build a community of houseplant enthusiasts and influencers with a podcast and videos on houseplant care and tips with a focus on YouTube and Vimeo. Future ecommerce opportunities are an online outlet where users can buy houseplants, cuttings, and relevant gardening tools. There is also potential for Housplantr to develop a commercial seed library. 
 
-# User experience goals
+## Houseplant Enthusiast User Stories 
+### As a first time visitor: 
+- I want to easily understand the main purpose Houseplantr, its primary content. 
+- I want to be able to easily navigate throughout the site, and build trust in the brand. 
+- I want to learn more about how to grow and care for new houseplants. 
+- I want to share images of my best houseplants. 
+- I want to share tips on how to look after houseplants. 
+- I want to be able to easily register as a user and join the community. 
+- I want to be able to log out of my account. 
+- Be able to view the app on different devices including mobile and desktop. 
 
-## As a first time visitor:
-- I want to easily understand the main purpose Houseplantr, its primary content.
-- I want to be able to easily navigate throughout the site, and build trust in the brand.
-- I want to learn more about how to grow and care for new houseplants.
-- I want to share images of my best houseplants.
-- I want to share tips on how to look after houseplants.
-- I want to be able to easily register as a user and join the community.
-- I want to be able to log out of my account.
-- Be able to view the app on different devices including mobile and desktop.
-
-
-## As a returning visitor:
-- I want to read about a wide range of houseplants and how to care for them on the app.
-- I want to be able to search the database to view specific houseplants.
-- I want to be able to join Housplantr and create my own account
-- I want to be able to add a record and describe my houseplant and how to care for it.
+### As a returning visitor: 
+- I want to read about a wide range of houseplants and how to care for them on the app. 
+- I want to be able to search the database to view specific houseplants. 
+- I want to be able to join Housplantr and create my own account 
+- I want to be able to add a record and describe my houseplant and how to care for it. 
 - I want to be able to display an image of my houseplant. 
-- I want to be able to edit my houseplant records.
-- I want to delete houseplants I don’t want on my profile.
-- I want to be able to filter and view my uploaded houseplants collection.
+- I want to be able to edit my houseplant records. 
+- I want to delete houseplants I don’t want on my profile. 
+- I want to be able to filter and view my uploaded houseplants collection. 
 
-## Promotional Opportunity
-- Build upon plant care section on the card reveal, to promote a Houseplantr podcast on YouTube and Vimeo by devveloping own branded channel.
-- A future ecommerce opportunity could be a marketplace where users can buy and sell cuttings, and develop a seed library.
+### Houseplantr Site Owner User Stories 
+- I want to build an app specifically for people who love Houseplants and who want to share images of their best houseplants and tips for houseplant care with others. 
+- I want users to be able to personalise their profile so they can create their own gallery of houseplants within the app. 
+- I want to be able to organise houseplants to be able to group the data, as in the future I would link a category to useful ecommerce products specific to the houseplant group.  
+- I want users to engage with the app and build upon the plant care section on the card reveal, to promote a Houseplantr podcast on YouTube and Vimeo by developing own branded channel. 
 
-# How app meets pre-identified user needs:
+### Meeting Houseplant enthusiast first time visitor goals: 
+- When the user arrives on the homepage, they can immediately see the main content of the app which is houseplants. This is evident with there being an attractive grid layout of houseplants which are appealing to houseplant enthusiasts as well as a description and a reveal section on each card to inform the user on how to care for the houseplant. The brand name Houseplantr reflects the main purpose of the app. The strapline indicates that a user should ‘join’. 
+- The user can easily navigate through the app via the navigation links at the top of the page which adapt to whether the user is viewing the app on desktop, or mobile. The nav changes when the user is logged in to allow access to user only pages. The app has been tested to ensure that it functions well which is essential to build trust in a website and a brand 
+- The user can click on individual cards either on the image but ore specifically via a magnifying icon which indicates there is more to see. On the reveal of the card is more information about how to care for the houseplant, and links to houseplant care on YouTube and Vimeo.: 
+- Logged in users can add a url of their houseplant to display on the app 
+- Logged in users can fill in the Houseplant care field with relevant tips 
+- New visitors can access the register page via the main menu and fill in a username and password to use on the app, as well as select their own avatar from a dropdown list. They are then taken to a profile page which displays their icon as well as a direct link to add a houseplant. 
+- When the user is logged, a link is visible in the navigation bar to allow the user to log out. 
+- The layouts on the app have all been designed to be responsive, making use of the classes in Materialize framework. 
 
-## Meeting first time visitor goals:
-- To easily understand the main purpose Houseplantr, its primary content:
-    - When the user arrives on the home page they can immediately see the main content of the ap pwhich is houseplants. This is evident with there being an attractive grid layout of houseplants which are appealing to houseplant enthusiasts as well as a descriotuin and a reveal section on each card to inform the user on how to care for the houseplant. The brand name Houseplantr reflects the main purpose of the app. The strapline indicates that a user should ‘join’.
-- To be able to easily navigate throughout the site, and build trust in the brand:
-    - The user can easily navigate through the app via the navigation links at the top of the page which adapt to whether the user is viewing the app on desktop, or mobile. The nav changes when the user is logged in to allow access to user only pages. The app has been tested to ensure that it functions well which is essential to build trust in a website and a brand
-- To learn more about how to grow and care for new houseplants:
-    - The user can click on individual cards either on the image but ore specifically via a magnifying icon which indicates there is more to see. On the reveal of the card is more information about how to care for the houseplant, and links to houseplant care on YouTube and Vimeo. 
-- To share images of my best houseplants:
-    - Logged in users are able to add a url of their houseplant to display o the app
-- To share tips on how to look after houseplants:
-    - Logged in users can fill in the Houseplant care field with relevant tips
-- To be able to easily register as a user and join the community:
-    - New visitors can access the register page via the main menu and fill in a username and password to use on the app, as well as select their own avatar from a dropdown list. They are then taken to a profile page which displays their icon as well as a direct link to add a houseplant.
-- To be able to log out of my account:
-    - When the user is logged, a link is visible in the navigation bar to allow the user to log out.
-- To view the app on different devices including mobile and desktop:
-    - The layouts on the app have all been designed to be responsive, making use of the classes in Materialize framework.
+### Meeting returning visitor goals: 
+- As more and more users join the app and take an interest, there will be regularly updated content, providing the users with fresh content to read and a wider selection of houseplants to read about. 
+- Users can search the houseplants collection index easily via the input field at the top of the home page. If a houseplant matched the search term it will be displayed. 
+- I have designed a user friendly registration page with a form where new users can easily sign up with a username and password and choose their avatar to use on their profile. 
+- The ‘Add Houseplant form which enables logged in users to fill in a series of required fields to describe their houseplant and how to care for it. The username who added the houseplant will be displayed on the houseplant record. 
+- The logged in user can add an image via a URL on the add houseplant page. The page is accessible via the navigation bar and the profile page when a user is logged in. 
+- There is functionality for logged in users to be able to update their own houseplant records (but not those of other users) This is accessed via the individual cards which have an edit button which takes the user to the Edit Houseplant page, where all fields can be updated. 
+- Logged in users can delete their own houseplant records (but not those of other users) This is accessed via the individual cards which have delete button which immediately deletes the record from the app and the database. 
 
-## Meeting returning visitor goals:
-- To read about a wide range of houseplants and how to care for them on the app:
-    - As more and more users join the app and take an interest, there will be regularly updated content, providing the users with fresh content to read and a wider selection of houspelants to read about.
-- Too be able to search the database to view specific houseplants:
-    - Users can search the houseplants collection index easily via the input field at the top of the home page. If a houseplant matched the search term it will be displayed.
-- To be able to join Housplantr and create my own account.
-    - I have designed a user friendly registration page with a form where new users can easily sign up with a username and password and choose their avatar to use on their profile.
-- To be able to add a record and describe my houseplant and how to care for it:
-    - I have designed an ‘Add Houseplant form which enables logged in user to fill in a series of required fields to describe their houseplant and how to care for it., add the date. The user who added the houseplant will be displayed on the houseplant record.
-- To be able to display an image of my houseplant: 
-    - The logged in user can add an image via a URL on the add houseplant page. The page is accessible via the navigation bar and the profile page when a user is logged in.
-- Too be able to edit my houseplant records:
-    - I have provided functionality for logged in users to be able to update their own houseplant records (but not those of other users) This is accessed via the individual cards which have an edit button which takes the user to the Edit Houseplant page, where all fields can be updated
-- To delete houseplants I don’t want on my profile:
-    - I have provided functionality for logged in users to be able to delete their own houseplant records (but not those of other users) This is accessed via the individual cards which have delete button which immediately deletes the record from the app and the database.
+### Meeting Houseplantr Site Owner Business Goals 
+
+- The Houseplantr app allows users to log in and add houseplant information and an image to their profile to share with other users of the app. 
+- The app contains ‘cards’ with a ‘reveal’ section where app visitors can find out more about how to care for their houseplant. 
+- Houseplantr visitors can register and create their own profile page with an avatar option they can select from a drop down list. Logged in users can create a gallery of houseplants within their own profile and also share their houseplants with other users of the app on the home page. 
+- The manage categories section which is only available to admins will allow the site owner to group the data for use in future ecommerce options. 
+- The plant care reveal section on each houseplant card has two icons with one linking to YouTube and one to Vimeo. In the future they will link to Houseplantr branded channels. 
 
 ## Potential user experience features to be added in the future: 
 - Add additional buttons under the strapline to emphasise that users can join, rather than looking for this functionality in the navigation.
@@ -242,6 +236,7 @@ In the houseplants collection I set up a document. The first key was category_na
 
 ### Create the Flask Application
 To create the Flask application I did the following:
+- Created a new repository in [GitHub](https://github.com/RachelFurlong-dev/milestone-project3-v1)
 - in the Terminal typed; 'pip3 install Flask' so that Flask functionality was ready to be imported.
 - created the app.py file which would run the application.
 - created an env.py in which to store sensitive data.
@@ -257,19 +252,19 @@ To create the Flask application I did the following:
 - set up a test function to check the app was working correctly in advance of connecting the app to MongoDB.
 
 ### Deploy application to Heroku:
-To deploy the application to Heroku I did the following:
+To deploy the application to the cloud platform [Heroku](https://www.heroku.com/) I did the following:
 - created a requirements.txt file where the dependencies required to run the app would be stored.
 - created a Procfile where Heroku could get the information needed to run the app.
-- created a new app called Houseplantr-v1 in [Heroku](https://www.heroku.com/).
+- created a new app called Houseplantr-v1 in Heroku.
 - connected to GitHub within the app using the GitHub connect option.
-- selected settings>Reveal Config Vars, added in the variables from the env.py file – left the MONGO_URI field contents empty for now.
+- selected settings>reveal config vars, added in the variables from the env.py file – left the MONGO_URI field contents empty to be completed later on in the development process.
 - pushed the two new files (requirements.txt and Procfile) to the repository.
-- selected Deploy tab in Heroku, then Enable Automatic Deploys and Deploy Branch. This enabled Heroku to receive the code from GitHub and build the app using the required packages.
+- selected Deploy Tab in Heroku, then Enable Automatic Deploys and Deploy Branch. This enabled Heroku to receive the code from GitHub and build the app using the required packages to deploy the [live site](https://houseplantr-v1.herokuapp.com/).
+
 
 ### Connect Flask to MongoDB:
-To connect Flask to MongoDB I did the following:
-- set up a working connection between your application and your database. 
-- installed a third party library called flask-pymongo.
+To connect Flask to [MongoDB](https://www.mongodb.com/) I did the following:
+- set up a working connection between my application and the database and installed a third party library called flask-pymongo.
 - installed 'dnspython' in order to use the Mongo SRV connection string.
 - updated the requirements.txt file to allow Heroku to detect the new requirements for running the app.
 - added the additional imports at the top of app.py to reflect the new installations.("from flask_pymongo import PyMongo").
@@ -287,10 +282,11 @@ To test data from MongoDB would display on a template page within the app I did 
 - tested to check the app was connecting with MongoDB by creating a function with a decorator that includes a route to that app. 
 - created a template houseplants.html and generated data from the houseplants collection to the template. 
 - ran the app to check the correct data was visible on the houseplants.html file which indicated that the app had connected with MongoDB successfully.
-Then, with MongoDB and Heroku set up correctly with the app, I was able to set up the templates, design the interface, create, edit and delete records to the app. Once testing was complete, I changed debug=True back to debug=False prior to final deployment.
+- With MongoDB and Heroku set up correctly with the app, I was able to set up the templates, design the interface, create, edit and delete records to the app. 
+- Once testing was complete, I changed debug=True (the setting required to be able to detect errors) to debug=False prior to final deployment.
 
 # How to deploy Houseplantr App
-Clone the houseplantr-v1 repository as follows:
+Clone the houseplantr-v1 [repository](https://github.com/RachelFurlong-dev/milestone-project3-v1) as follows:
 - on GitHub.com, navigate to the main page of the repository.
 - above the list of files, click Code.
 - clone the repository using HTTPS, or use an SSH key, or by using GitHub CLI.
@@ -302,51 +298,53 @@ Clone the houseplantr-v1 repository as follows:
 Set up an account with the document based database [MongoDB Atlas](https://www.mongodb.com/)
 ### Set up MongoDB 
 set up the following:
-- a cluster on which a database can run.
-- add a new database user with username and password.
-- set privileges as Read and Write to the database.
-- whiteliste IP address and select allow Access From Anywhere.
-- Once the cluster is fully provisioned, create a new database called houseplantr_db to store the data that will be used with the app.
+1. a cluster on which a database can run.
+2. add a new database user with username and password.
+3. set privileges as Read and Write to the database.
+4. whiteliste IP address and select allow Access From Anywhere.
+5. Once the cluster is fully provisioned, create a new database called houseplantr_db to store the data that will be used with the app.
 ### Set up collections:
-Create three collections within the database: Categories, Houseplants and Users.
-In the Categories collection, Insert a Document and create a key value pair: category_name:Flowering. At this stage only one houseplant category is needed just to get the app set up. The rest of the categories will be added later.
+1. Create three collections within the database: Categories, Houseplants and Users.
+2. In the Categories collection, Insert a Document and create a key value pair: category_name:Flowering. At this stage only one houseplant category is needed just to get the app set up. The rest of the categories will be added later.
 ### Add document:
-In the houseplants collection set up a document: The first key is category_name:“Flowering” as before. Then add additional fields: horticultural name, common name, description, date, created_by, image_url, and houseplant_care. The relevant houseplant data should be added as key value pairs as in the screenshot below. Again, only one houseplant document is needed at this stage to get the app set up, and new documents will be created within the app.  
+1. In the houseplants collection set up a document: The first key is category_name:“Flowering” as before. 
+2. Add additional fields: horticultural name, common name, description, date, created_by, image_url, and houseplant_care. The relevant houseplant data should be added as key value pairs as in the screenshot below. Again, only one houseplant document is needed at this stage to get the app set up, and new documents will be created within the app.  
 ![Key Value Pairs within a document](screenshots/example-key-value-pairs.png)
 ### Create the Flask Application
 To create the Flask application:
-- in the Terminal type; 'pip3 install Flask' so that Flask functionality is ready to be imported.
-- create an env.py in which to store sensitive data.
-- create a gitignore file which was set up to ignore env.py as well as the the '__pycache__/' directory.so that data that must be kept secure such as secret keys will not be saved to GitHub.
-- import os to set up default environment variables in the env.py file, as in the screenshot below:  
+1. in the Terminal type; 'pip3 install Flask' so that Flask functionality is ready to be imported.
+2. create an env.py in which to store sensitive data.
+3. create a gitignore file to ignore env.py as well as the the '__pycache__/' directory - data that must be kept secure such as secret keys must not be saved to GitHub.
+4. import os to set up default environment variables in the env.py file, as in the screenshot below:  
 ![Environment Variables](screenshots/environment-variables.png)
-- update the env package in app.py so Heroku will be able to find the corrrect environment variables as they are not be pushed to GitHub.
-- set the final parameter to debug=True during development, in order to detect errors that may appear, instead of a generic server warning. Change this back to debug=False prior to final deployment.
-- set up a test function to check the app was working correctly in advance of connecting the app to MongoDB.
+5. update the env package in app.py so Heroku will be able to find the corrrect environment variables as they are not be pushed to GitHub.
+6. set the final parameter to debug=True during development, in order to detect errors that may appear, instead of a generic server warning. Change this back to debug=False prior to final deployment.
+7. set up a test function to check the app is working correctly in advance of connecting the app to MongoDB.
 ### Deploy application to Heroku:
-To deploy the application to Heroku:
-- create a requirements.txt file where the dependencies required to run the app will be stored.
-- create a Procfile where Heroku could get the information needed to run the app.
-- create a new app called Houseplantr-v1 in [Heroku](https://www.heroku.com/).
-- connect to GitHub within the app using the GitHub connect option.
-- select settings>Reveal Config Vars, added in the variables from the env.py file – leave the MONGO_URI field contents empty for now.
-- push the two new files (requirements.txt and Procfile) to the repository.
-- select Deploy tab in Heroku, then Enable Automatic Deploys and Deploy Branch. This enables Heroku to receive the code from GitHub and build the app using the required packages.
+To deploy the application to [Heroku](https://www.heroku.com/):
+1. create a requirements.txt file where the dependencies required to run the app will be stored.
+2. create a Procfile where Heroku can get the information needed to run the app.
+3. create a new app in Heroku and give it a name.
+4. select location nearest to you.
+5. connect to GitHub within the app using the GitHub connect option.
+6. select Settings > Reveal Config Vars, and type in the variables from the env.py file into the fields in MongoDB – leave the MONGO_URI field contents empty for now.
+7. in GitHub push the two new files (requirements.txt and Procfile) to the repository.
+8. select the Deploy Tab in Heroku, then Enable Automatic Deploys and Deploy Branch. This enables Heroku to receive the code from GitHub and build the app using the required packages.
 ### Connect Flask to MongoDB:
 To connect Flask to MongoDB complete the following:
-- set up a working connection between your application and your database. 
-- install a third party library called flask-pymongo.
-- install 'dnspython' in order to use the Mongo SRV connection string.
-- update the requirements.txt file to allow Heroku to detect the new requirements for running the app.
-- add the additional imports at the top of app.py to reflect the new installations.("from flask_pymongo import PyMongo").
-- add "from bson.objectid import ObjectId"(because MongoDB stores its data in a JSON-like format called BSON).
-- update configuration in app.py to connect to MongoDb. 
-- from MongoDB cluster copy the MONGO_URI connection string, updating database name and password to replace the angle brackets placeholder content.
-- copy the completed string to env.py file to complete the MONGO_URI environment variable.
-- copy the completed string to the MONGO_URI variable in Heroku Config Vars.
-- test the app to see if it is connecting with the database successfully.  
+1. set up a working connection between your application and your database. 
+2. install a third party library called flask-pymongo.
+3. install 'dnspython' in order to use the Mongo SRV connection string.
+4. update the requirements.txt file to allow Heroku to detect the new requirements for running the app.
+5. add the additional imports at the top of app.py to reflect the new installations.("from flask_pymongo import PyMongo").
+6. add "from bson.objectid import ObjectId"(MongoDB stores its data in a JSON-like format called BSON).
+7. update configuration in app.py to connect to MongoDB. 
+8. in your MongoDB cluster copy the MONGO_URI connection string, updating database name and password with your chosen settings to replace the angle brackets placeholder content.
+9. copy the completed string to env.py file to complete the MONGO_URI environment variable.
+10. copy the completed string to the MONGO_URI variable in Heroku Config Vars.
+
 ### Display data from MongoDB on template page:
-- run the app to check the correct data from the houseplants collection is visible on the houseplants.html file. This indicates that the app has connected with MongoDB successfully.
+To test the app to see if it is connecting with the database successfully, run the app to check the correct data from the houseplants collection is visible on the houseplants.html file. This indicates that the app has connected with MongoDB successfully.
 
 # Accessibility
 Accessible features include:
