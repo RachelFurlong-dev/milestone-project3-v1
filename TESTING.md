@@ -4,8 +4,8 @@ I have created an admin account which has access to categories pages in addition
 
 ### Tested login form user authentication
 [Login Page]()
-- Tested that the relevant flash message appeared if the user entered the wrong username or password."Incorrect username and/or password"
-- Tested that the relevant flash message appears when the user logs out, to tell the user that they have logged out."You have been logged out"
+- Tested that the relevant flash message appeared if the user entered the wrong username or password.E.g."Incorrect username and/or password"
+- Tested that the relevant flash message appears when the user logs out, to tell the user that they have logged out. E.g."You have been logged out"
 - Tested that if a logged in user is able to access the login page, they are redirected to their profile. 
 - Tested once the user has filled in the login form correctly that they are directed to their profile page and that a flash message appears saying welcome and their name.
 ![Login Page](screenshots/loginscreenshot.png) 
@@ -24,7 +24,7 @@ I have created an admin account which has access to categories pages in addition
 These links are on the login and registration pages, so users can easily move between login and registration pages if they have selected the wrong one.
 
 ### Tested user profile
-- User has to be logged in to test page.
+- User has to be logged in to access page.
 - Tested the My Houseplants button enables the display of a modal with users own houseplant records.
 - Checked that only the records created by the user themselves were displaying in the modal on the profile page. 
 - Tested a flash message appeared if the user had no houseplant record "No results found".
@@ -42,7 +42,7 @@ These links are on the login and registration pages, so users can easily move be
 - Tested the URL field must receive only urls and not text for example. However, on testing I discovered this field could be left blank. I therefore updated the field to 'required' in add_houseplant.html.
 - Tested the submit button added the record to the database and can be seen listed in MongoDB.
 - Tested that the user is directed to the home page with a flash message to tell the user that their Houseplant has been successfully added.  
-[Add Houseplant page](screenshots/add-houseplant_layout.png)
+![Add Houseplant page](screenshots/add-houseplant_layout.png)
 ### Tested edit houseplant form validation
 - Tested all the fields are required fields and cannot be left blank: 
 - Tested the character length on the name input field must be a minimum of 5 and maximum of 50 characters.
@@ -52,14 +52,16 @@ These links are on the login and registration pages, so users can easily move be
 - Tested the URL field must receive only urls and not text for example. However again, on testing I discovered this field could be left blank. I therefore updated the field to 'required' in edit_houseplant.html.
 - Tested the cancel button takes the user back to the homepage.
 - Tested that once the user clicks the edit button after making changes, the user receives a flash message that says their Houseplant has been successfully updated.
-- Tested that once the user clicks the delete button, the user receives a flash message that says their Houseplant has been successfully delete, and that the houseplant record is deleted from the layout and the database.
+- Tested that once the user clicks the delete button, the user receives a flash message that says their Houseplant has been successfully deleted, and that the houseplant record is deleted from the layout and the database.
 
 ### Tested homepage
-[Homepage](https://houseplantr-v1.herokuapp.com/get_houseplants)
-![Homepage](screenshots/desktop-browser-views.png
+[Homepage](https://houseplantr-v1.herokuapp.com/get_houseplants)  
+![Homepage](screenshots/desktop-browser-views.png)
 - Checked the edit and delete buttons on the home page functioned correctly, and that only the logged in user was permitted to edit or delete their own houseplant records. The edit and delete buttons were inaccessible to other users or to users who were not logged in.
-- Tested reveal functionality where users can find out how to care for their houseplants by clicking on the magnifying icon or the houseplant image.
-- Tested external links on the reveal section which provide user access to houseplant care videos and a potential feature in the future - A Houseplantr houseplants channel. For now, the links point to houseplant care videos on YouTube and Vimeo. I tested to check they the links opened at the correct destination and in a new tab.
+- Tested reveal functionality where users can find out how to care for their houseplants by clicking on the magnifying icon or the houseplant image. I noticed that the organisation of content in the reveal section was confusing to users. I moved the "How do I keep it alive" question below the plant name but above the plant care description text field. I changed the weighting and text colour to differentiate it from the plant name.
+![Update reveal layout](screenshots/reveal-update.png) 
+
+- Tested external links on the reveal section which provide user access to houseplant care videos and a potential features in the future - A Houseplantr YouTube podcast channel and Vimeo channel. For now, the links point to houseplant care videos on YouTube and Vimeo. I tested to check that the links opened at the correct destination and in a new tab.
 
 ### Tested search functionality
 - Tested that users could search the index in the houseplants collection. I used words and phrases included or not included in the houseplants collection. The search functionality always showed records when the keyword/phrase existed. If a keyword/phrase didn't exist, then a flash message appeared saying  'No results found'. I tested searching other collections such as Users, but this did not show, which is correct as only one index could be set up and I set it to the Houseplants Collection.
@@ -67,7 +69,7 @@ These links are on the login and registration pages, so users can easily move be
 ![Search result 'green'](screenshots/search-result-green.png)
 
 ### Tested navigation links.
-All navigation links on desktop and mobile were tested  to make sure they linked to the relevant pages.
+All navigation links on desktop and mobile were tested to make sure they linked to the relevant pages.
 
 ### Tested access to admin only pages.
 [Manage Categories](https://houseplantr-v1.herokuapp.com/add_houseplant)
@@ -79,12 +81,13 @@ All navigation links on desktop and mobile were tested  to make sure they linked
 - I tested to make sure admin accounts were able to add, edit or delete categories on the Manage Categories page.
 - I tested the Add Category button took user to an input field where a new category could be added.
 - Tested the input field was required and limited entries to between 3 and 20 characters.
-[image manage categories}
+![Manage categories](screenshots/manage-categories-dashboard.png)
 
-## Browser testing and responsivity
-- The desktop App was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers, to check for responsive layouts and functionality on all pages. I tested all page layouts on a number of screensizes, which all proved responsive to the screen size.The homepage view is illustrated below:  
+## Browser testing
+- The desktop App was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers, to check for responsive layouts and functionality on all pages. I tested all page layouts on a number of screensizes, which all proved responsive to the screen size. I tested website functionality on all browsers to cheeck that users were able to register, log in, log out, add, update and delete records successfully without any errors. The homepage view is illustrated below:  
 ![Desktop browser views](screenshots/desktop-browser-views.png)
-- The App was tested on a variety of devices including
+## Responsive layouts testing
+- The App was tested on a series of devices to check the layouts automatically adapt to different devices with different screen sizes. I took a mobile first approach to responsive design; for example on the home page, the layout changes from a one column layout on mobile screens, two columns on medium screens, scaled up to a four column grid on large screens. This meant the user experience was as good, whether the site was viewed on a small mobile device or large desktop screen.
 - Mobile screen - Iphone 12 pro:  
 ![iphone12 pro layouts](screenshots/testing-iphone12-pro.png). 
 - Tablet layout - iPad mini   
@@ -94,11 +97,28 @@ All navigation links on desktop and mobile were tested  to make sure they linked
 - Large screen - iMac 27"   
 ![Imac 27" layouts](screenshots/testing-imac-27.png) 
 
-## Device testing CRUD functionality.
+## Device testing CRUD functionality
 - I tested adding a houseplant record on iPhone 11 device, then edited it and deleted it without any issues.
 - I tested adding a houseplant record on iMac 27” device, then edited it and deleted it without any issues.
 - I tested adding a houseplant record on MacBook 13" device, then edited it and deleted it without any issues.
 - I tested adding a houseplant record on Microsoft Surface device, then edited it and deleted it without any issues.
+
+# Validation
+### HTML validation:
+I tested the app with the [W3C HTML checker](https://validator.w3.org/) and it indicated the following warnings:
+- Warning: Section lacks heading. Consider using h2-h6 elements to add identifying headings to all sections, or else use a div element instead for any cases where no heading is needed. The reason for this is that the html (div and h4 headings) were hidden from the validator due to the jinga templating language.  
+![HTML section warning](screenshots/html-section-warning1.png). 
+- A warning was issued about the Vimeo and YouTube aria labels. I was able to update the YouTube label so it was accepted (YouTube link). However, all attempts to add an aria label to the Vimeo link caused a warning to show. I therefore added the equivalent label I used for YouTube as the links have much the same function and should be clear to screen readers.  
+![Vimeo aria label warning](screenshots/html-aria-label-warning.png)
+### CSS validation
+I tested style.css file with the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) and no error was found.  
+![CSS validation](screenshots/w3-css-validation.png)
+### Javascript validation
+The script.js was tested by [Jshint online checker](https://jshint.com/) Two warnings were issued about the let variable keyword being available in ES6 version since 2015. 
+![Javascript warning](screenshots/jshint-warning.png)
+### Python validation
+I tested app.py file with [PEP8 Online Check](http://pep8online.com/) and the file is PEP8 compliant.  
+![PEP8 compliant](screenshots/pep8-online-validation.png)
 
 # Security testing
 ## Session cookie
@@ -117,4 +137,11 @@ To do this I added a decorator which wraps and replaces another function. I used
 ## Flash message examples
 Throughout testing I have referred to the 'flash messages' that inform the user when they have completed an action within the app. Some of these are illustrated below:
 ![Flash message examples](screenshots/flash-message-examples.png)
+
+## Performance testing
+I tested the app with Lighthouse in Chrome Dev Tools. Whilst the scores were good especially for best practices, the app would be improved primarily by reducing the size of the images used, in order to improve page load speed.
+![Lighthouse performance summary](screenshots/lighthouse-performance-summary.png)
+
+
+
 
