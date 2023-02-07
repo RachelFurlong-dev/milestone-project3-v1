@@ -5,8 +5,8 @@
 ![Houseplantr App](screenshots/mockups.png)
 Want to share your houseplant love? Join our community on Houseplantr and share your knowledge and Houseplant recommendations with others. Display your own online indoor garden with a free account, and upload and share your favourite houseplants and houseplant tips with the community.
 
-# About Houseplantr
-With the rise of social media platforms such as Instagram there has been a profound change in the tastes and habits of even established gardeners. Online stardom for Houseplants has meant a growth in the popularity of appealing varieties, including plants that haven’t been in demand since the 1970s. 
+# About Houseplantr.
+With the rise of social media platforms such as Instagram and Pinterest, there has been a profound change in the tastes and habits of even established gardeners. Online stardom for Houseplants has meant a growth in the popularity of appealing varieties, including plants that haven’t been in demand since the 1970s. 
 
 ## Audiences
 Houseplant lovers have already demonstrated their enthusiasm for online platforms such as Instagram and YouTube, where they can share their favourite houseplants and get new ideas. There is also a demand for information on how to care for and grow new houseplants from cuttings. Houseplants have become more appealing to online audiences – especially amongst people who may not have their own garden. 
