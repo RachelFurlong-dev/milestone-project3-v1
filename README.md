@@ -116,9 +116,9 @@ The images used for demonstration purposes and avatars, have been selected from 
 # Wireframes
 All my wireframes have been created in Adobe XD. I am familiar with Adobe programmes so I am more efficient. You can see my wireframes in the folder [here](/wireframes)
 
-# Database Design
-- I started by organising the information I needed to store in an entity relationship diagram.
-![Entity Relationship Diagram](screenshots/entity-relationship-diagram.png)
+# Database Schema
+- I have represented the data within an entity relationship diagram.
+![Entity Relationship Diagram](screenshots/erd_houseplantr.png)
 - I have structured a database using [MongoDB](https://www.mongodb.com/), a document-oriented database program to support the Houseplantr app.  
 Based on this information, I then created a database structure called houseplantr_db, within which I created 3 collections: categories, houseplants and users.
 - ![Houseplantr Mongo DB database](screenshots/dbhouseplantr.png)
