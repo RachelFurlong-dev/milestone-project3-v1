@@ -118,8 +118,8 @@ All my wireframes have been created in Adobe XD. I am familiar with Adobe progra
 
 # Database Schema
 - I have represented the data within an entity relationship diagram.
-![Entity Relationship Diagram](screenshots/erd-diagram-final.png)
-- I have structured a database using [MongoDB](https://www.mongodb.com/), a document-oriented database program to support the Houseplantr app.  
+- ![Entity Relationship Diagram](screenshots/erd_final.png)
+- I have structured a database using [MongoDB](https://www.mongodb.com/), a document-oriented database to support the Houseplantr app.  
 Based on this information, I then created a database structure called houseplantr_db, within which I created 3 collections: categories, houseplants and users.
 - ![Houseplantr Mongo DB database](screenshots/dbhouseplantr.png)
 The collection 'houseplants' stores the specific fields of information submitted by the user via the add_houseplant.html page form on the app when the user is logged in.
